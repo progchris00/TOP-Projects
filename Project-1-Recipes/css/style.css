@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #efefef;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  padding: 40px;
+}
+
+.left {
+  width: 50%;
+}
+
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.right img {
+  width: 75%;
+}
