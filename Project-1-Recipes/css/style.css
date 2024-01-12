@@ -34,7 +34,6 @@ ul > li {
 }
 
 ul > li > a {
-  display: block;
   text-decoration: none;
   color: black;
   font-family: "Poppins", sans-serif;
