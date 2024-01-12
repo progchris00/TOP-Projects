@@ -76,7 +76,7 @@ h1 {
   font-weight: 900;
 }
 
-p {
+.tagline {
   font-family: "Vollkorn", serif;
   font-size: 24px;
   margin: 0 0 30px 0;
@@ -88,6 +88,53 @@ p {
   font-weight: 800;
   padding: 5px 60px;
   background-color: #bc1823;
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+}
+
+/* About page */
+.about-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.about-image {
+  width: 50%;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-description {
+  width: 50%;
+  padding: 40px;
+}
+
+h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 2.5rem;
+  margin: 0;
+  font-weight: 900;
+}
+
+.about-description p {
+  font-family: "Vollkorn", serif;
+  font-size: 18px;
+}
+
+.about-description a {
+  margin: 0;
+  font-family: "Vollkorn", serif;
+  font-weight: 800;
+  padding: 5px 40px;
+  background-color: black;
   color: white;
   text-decoration: none;
   border-radius: 20px;
