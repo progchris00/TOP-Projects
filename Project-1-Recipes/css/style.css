@@ -116,16 +116,23 @@ h2 {
 
 p {
   font-family: "Vollkorn", serif;
-}
-
-.description {
-  font-size: 18px;
   margin: 0 0 30px 0;
 }
 
-.tagline {
-  font-size: 24px;
-  margin: 0 0 30px 0;
+.large {
+  font-size: 1.5rem;
+}
+
+.medium {
+  font-size: 1.25rem;
+}
+
+.bold {
+  font-weight: 800;
+}
+
+.no-margin {
+  margin: 0;
 }
 
 .letter-spacing {
@@ -155,34 +162,27 @@ p {
 
 /* Recipes */
 .gallery {
+  max-width: 80%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 40px;
-  width: 70%;
 }
 
 .frame {
+  height: 50vh;
+  width: 20vw;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
+  justify-content: space-around;
   background-color: white;
-  width: 270px;
-  height: 300px;
   border-radius: 20px;
 }
 
 .arrow {
   width: 15px;
-}
-
-.item {
-  margin: 0;
-  font-family: "Vollkorn", serif;
-  font-weight: 800;
-  font-size: 16px;
 }
 
 .arrow-name {
@@ -195,6 +195,7 @@ p {
 
 .item-img {
   height: 35vh;
+  width: 15vw;
 }
 
 .heading {
