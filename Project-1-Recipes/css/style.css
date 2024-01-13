@@ -65,15 +65,6 @@ main {
   margin: 0 auto;
 }
 
-.column {
-  flex-direction: column;
-  justify-content: center;
-}
-
-.home {
-  width: 85%;
-}
-
 .left,
 .right {
   display: flex;
@@ -81,8 +72,23 @@ main {
   width: 50%;
 }
 
-.left {
+.column {
   flex-direction: column;
+}
+
+.center {
+  justify-content: center;
+}
+
+.home {
+  width: 85%;
+}
+
+.padding {
+  padding: 40px;
+}
+
+.flex-btn {
   align-items: flex-start;
 }
 
@@ -95,7 +101,6 @@ main {
 h1,
 h2 {
   font-family: "Poppins", sans-serif;
-  letter-spacing: -2px;
   font-size: 4rem;
   margin: 0;
   font-weight: 900;
@@ -123,6 +128,10 @@ p {
   margin: 0 0 30px 0;
 }
 
+.letter-spacing {
+  letter-spacing: -2px;
+}
+
 /* Buttons */
 .btn {
   margin: 0;
@@ -142,27 +151,6 @@ p {
 .btn.recipe {
   padding: 5px 30px;
   margin-top: 30px;
-}
-
-/* About page */
-.about-image {
-  width: 50%;
-}
-
-.about-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.about-description {
-  width: 50%;
-  padding: 40px;
-}
-
-.about-description p {
-  font-family: "Vollkorn", serif;
-  font-size: 18px;
 }
 
 /* Recipes */
