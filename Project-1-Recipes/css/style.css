@@ -196,3 +196,7 @@ p {
 .item-img {
   height: 35vh;
 }
+
+.heading {
+  text-align: center;
+}
