@@ -74,15 +74,16 @@ main {
   width: 85%;
 }
 
-.left {
-  width: 50%;
-}
-
+.left,
 .right {
   display: flex;
   justify-content: center;
-  align-items: center;
   width: 50%;
+}
+
+.left {
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .right img {
