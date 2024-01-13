@@ -52,13 +52,26 @@ nav > ul > li > a:hover {
 }
 
 /* Contents */
+main {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
 .container {
+  height: 100%;
   display: flex;
   align-items: center;
-  height: 100vh;
-  width: 85%;
   margin: 0 auto;
-  overflow: hidden;
+}
+
+.column {
+  flex-direction: column;
+  justify-content: center;
+}
+
+.home {
+  width: 85%;
 }
 
 .left {
@@ -104,14 +117,6 @@ h1 {
 }
 
 /* About page */
-.about-container {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-}
-
 .about-image {
   width: 50%;
 }
@@ -151,14 +156,6 @@ h2 {
 }
 
 /* Recipes */
-.recipes-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
 .description {
   font-size: 18px;
   font-family: "Vollkorn", serif;
