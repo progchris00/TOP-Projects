@@ -152,6 +152,7 @@ h2 {
 }
 
 .description {
+  font-size: 18px;
   font-family: "Vollkorn", serif;
   margin-top: 0;
   margin-bottom: 30px;
@@ -200,6 +201,9 @@ h2 {
 
 .item {
   margin: 0;
+  font-family: "Vollkorn", serif;
+  font-weight: 800;
+  font-size: 16px;
 }
 
 .arrow-name {
@@ -207,5 +211,9 @@ h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 5px;
+}
+
+.item-img {
+  height: 35vh;
 }
