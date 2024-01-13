@@ -141,3 +141,71 @@ h2 {
   text-decoration: none;
   border-radius: 20px;
 }
+
+/* Recipes */
+.recipes-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.description {
+  font-family: "Vollkorn", serif;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  width: 70%;
+}
+
+.frame {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  width: 270px;
+  height: 300px;
+  border-radius: 20px;
+}
+
+.offer-title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-size: 2.5rem;
+}
+
+.button {
+  margin-top: 40px;
+  font-family: "Vollkorn", serif;
+  font-weight: 800;
+  padding: 5px 20px;
+  background-color: #bc1823;
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+}
+
+.arrow {
+  width: 15px;
+}
+
+.item {
+  margin: 0;
+}
+
+.arrow-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
