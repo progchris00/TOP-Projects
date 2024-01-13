@@ -100,13 +100,17 @@ h1 {
   font-weight: 900;
 }
 
-.tagline {
+p {
   font-family: "Vollkorn", serif;
+}
+
+.tagline {
   font-size: 24px;
   margin: 0 0 30px 0;
 }
 
-.left > a {
+/* Buttons */
+.btn {
   margin: 0;
   font-family: "Vollkorn", serif;
   font-weight: 800;
@@ -115,6 +119,15 @@ h1 {
   color: white;
   text-decoration: none;
   border-radius: 20px;
+}
+
+.btn.black {
+  background-color: black;
+}
+
+.btn.recipe {
+  padding: 5px 30px;
+  margin-top: 30px;
 }
 
 /* About page */
@@ -143,17 +156,6 @@ h2 {
 .about-description p {
   font-family: "Vollkorn", serif;
   font-size: 18px;
-}
-
-.about-description a {
-  margin: 0;
-  font-family: "Vollkorn", serif;
-  font-weight: 800;
-  padding: 5px 40px;
-  background-color: black;
-  color: white;
-  text-decoration: none;
-  border-radius: 20px;
 }
 
 /* Recipes */
@@ -188,17 +190,6 @@ h2 {
   font-family: "Poppins", sans-serif;
   font-weight: 900;
   font-size: 2.5rem;
-}
-
-.button {
-  margin-top: 40px;
-  font-family: "Vollkorn", serif;
-  font-weight: 800;
-  padding: 5px 20px;
-  background-color: #bc1823;
-  color: white;
-  text-decoration: none;
-  border-radius: 20px;
 }
 
 .arrow {
