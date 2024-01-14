@@ -140,22 +140,27 @@ p {
 }
 
 /* Buttons */
-.btn {
+button {
   margin: 0;
-  font-family: "Vollkorn", serif;
-  font-weight: 800;
-  padding: 5px 60px;
   background-color: #bc1823;
-  color: white;
-  text-decoration: none;
   border-radius: 20px;
+  padding: 5px 60px;
+  border: none;
+  cursor: pointer;
 }
 
-.btn.black {
+a > button {
+  text-decoration: none;
+  font-family: "Vollkorn", serif;
+  color: white;
+  font-weight: 800;
+}
+
+button.black {
   background-color: black;
 }
 
-.btn.recipe {
+button.recipe {
   padding: 5px 30px;
   margin-top: 30px;
 }
