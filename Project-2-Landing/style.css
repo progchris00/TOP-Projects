@@ -144,7 +144,7 @@ nav > ul > li > a {
 
 /* Quote */
 .quote-section {
-  height: 80vh;
+  height: 70vh;
   background-color: #121212;
 
   display: flex;
@@ -164,4 +164,26 @@ nav > ul > li > a {
 
 .quote {
   color: white;
+}
+
+/* Order section */
+
+.order-section {
+  height: 30vh;
+  background-color: #121212;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner {
+  width: 70%;
+  height: 150px;
+  background-color: #1e1e1f;
+  border-radius: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
