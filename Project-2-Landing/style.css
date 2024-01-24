@@ -139,10 +139,29 @@ nav > ul > li > a {
   width: 80%;
   height: 80%;
   object-fit: cover;
+  border-radius: 12.5px;
 }
 
 /* Quote */
 .quote-section {
   height: 80vh;
   background-color: #121212;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quote-container {
+  background-color: #1e1e1f;
+  width: 100%;
+  height: 300px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quote {
+  color: white;
 }
