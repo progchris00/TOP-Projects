@@ -140,3 +140,9 @@ nav > ul > li > a {
   height: 80%;
   object-fit: cover;
 }
+
+/* Quote */
+.quote-section {
+  height: 80vh;
+  background-color: #121212;
+}
