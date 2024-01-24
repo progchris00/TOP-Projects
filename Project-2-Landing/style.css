@@ -40,7 +40,6 @@ ul > li {
 }
 
 main {
-  height: 100vh;
   background-color: #121212;
 }
 
@@ -182,6 +181,18 @@ nav > ul > li > a {
   height: 150px;
   background-color: #1e1e1f;
   border-radius: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* Footer */
+footer {
+  height: 100px;
+  width: 100%;
+  background-color: #121212;
+  color: white;
 
   display: flex;
   align-items: center;
