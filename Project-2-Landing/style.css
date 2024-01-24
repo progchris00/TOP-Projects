@@ -65,9 +65,32 @@ nav > ul > li > a {
   height: 90vh;
 }
 .container {
+  display: flex;
+
   height: 70vh;
   width: 75%;
   background-color: #1e1e1f;
   border: 2px solid hsl(0, 0%, 22%);
   border-radius: 25px;
+}
+
+.description,
+.image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 50%;
+}
+
+.image img {
+  height: 80%;
+  width: 80%;
+  object-fit: cover;
+}
+
+/* Item gallery */
+.item-gallery {
+  height: 90vh;
+  background-color: #121212;
 }
