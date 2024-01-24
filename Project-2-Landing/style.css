@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+
+header {
+  background-color: #1e1e1f;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  border-bottom: 2px solid hsl(0, 0%, 22%);
+}
+
+nav {
+  width: 70%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+nav > ul {
+  display: flex;
+  width: 300px;
+  justify-content: space-around;
+  padding: 0;
+}
+
+ul > li {
+  display: block;
+}
+
+nav > ul > li > a {
+  color: #d6d6d6;
+  text-decoration: none;
+}
+
+main {
+  height: 100vh;
+  background-color: #121212;
+}
