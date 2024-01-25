@@ -71,6 +71,15 @@ nav > ul > li > a {
   text-align: center;
 }
 
+.product-title {
+  font-family: "Montserrat", sans-serif;
+}
+
+.product-description {
+  margin: 0;
+  color: #d6d6d6;
+}
+
 /* Sections */
 
 /* Hero */
