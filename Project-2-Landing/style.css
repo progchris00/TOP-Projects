@@ -63,7 +63,9 @@ nav > ul > li > a {
 .items-title {
   margin: 0;
   color: white;
+  font-size: 2rem;
   margin-bottom: 40px;
+  font-weight: 900;
 }
 
 .item-description {
