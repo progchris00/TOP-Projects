@@ -47,17 +47,18 @@ main {
 
 /* Fonts */
 nav > ul > li > a {
-  color: #d6d6d6;
+  color: #fafafa;
   text-decoration: none;
   font-weight: 800;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
 }
 
 .logo-name {
   margin: 0;
   font-size: 1.2rem;
-  color: #d6d6d6;
-  font-family: "Montserrat", sans-serif;
+  color: #fafafa;
+  font-weight: 800;
+  font-family: "Roboto Condensed", sans-serif;
 }
 
 .items-title {
@@ -257,6 +258,8 @@ button.order {
   font-family: "Roboto Condensed", sans-serif;
   font-size: 1rem;
 }
+
+/* Hover effects */
 
 button.order:hover {
   background-color: #ffdb70;
