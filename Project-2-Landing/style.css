@@ -227,6 +227,11 @@ nav > ul > li > a {
   justify-content: space-around;
 }
 
+/* Quote section */
+.quote {
+  font-size: 2rem;
+}
+
 /* Footer */
 footer {
   height: 100px;
