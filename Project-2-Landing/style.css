@@ -82,6 +82,27 @@ nav > ul > li > a {
   color: #d6d6d6;
 }
 
+.quote {
+  font-size: 2rem;
+  color: #fafafa;
+  font-weight: 800;
+  text-align: center;
+}
+
+.call-to-action {
+  color: #fafafa;
+}
+
+.call-to-action h3 {
+  font-size: 1.7rem;
+  margin: 0;
+}
+
+.call-to-action p {
+  margin-bottom: 0;
+  font-size: 1.2rem;
+}
+
 /* Sections */
 
 /* Hero */
@@ -195,6 +216,7 @@ nav > ul > li > a {
   background-color: #1e1e1f;
   width: 100%;
   height: 300px;
+  padding: 40px;
 
   display: flex;
   align-items: center;
@@ -227,9 +249,18 @@ nav > ul > li > a {
   justify-content: space-around;
 }
 
-/* Quote section */
-.quote {
-  font-size: 2rem;
+button.order {
+  padding: 10px 20px;
+  border-radius: 16px;
+  border: none;
+
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 1rem;
+}
+
+button.order:hover {
+  background-color: #ffdb70;
+  cursor: pointer;
 }
 
 /* Footer */
