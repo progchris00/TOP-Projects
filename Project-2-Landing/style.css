@@ -217,7 +217,6 @@ p {
 }
 
 /* Order section */
-
 .order-section {
   height: 30vh;
   background-color: #121212;
@@ -242,13 +241,6 @@ button.order {
   font-size: 1rem;
 }
 
-/* Hover effects */
-
-button.order:hover {
-  background-color: #ffdb70;
-  cursor: pointer;
-}
-
 /* Footer */
 footer {
   height: 100px;
@@ -261,4 +253,11 @@ footer {
 
 .socials img {
   width: 30px;
+}
+
+/* Hover effects */
+
+button.order:hover {
+  background-color: #ffdb70;
+  cursor: pointer;
 }
