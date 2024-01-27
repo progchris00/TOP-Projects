@@ -134,9 +134,12 @@ p {
   flex-direction: column;
 }
 
-.hero {
+.centered {
   align-items: center;
   justify-content: center;
+}
+
+.hero {
   height: 90vh;
 }
 .container {
@@ -149,8 +152,6 @@ p {
 
 .description,
 .image {
-  align-items: center;
-  justify-content: center;
   height: 100%;
   width: 50%;
 }
@@ -171,9 +172,6 @@ p {
 
 /* Items*/
 .items {
-  align-items: center;
-  justify-content: center;
-
   height: 80vh;
   background-color: #121212;
 }
@@ -188,9 +186,6 @@ p {
 }
 
 .frame {
-  justify-content: center;
-  align-items: center;
-
   border-radius: 25px;
   background-color: #1e1e1f;
   border: 2px solid hsl(0, 0%, 22%);
@@ -208,9 +203,6 @@ p {
 .quote-section {
   height: 70vh;
   background-color: #121212;
-
-  align-items: center;
-  justify-content: center;
 }
 
 .quote-container {
@@ -218,9 +210,6 @@ p {
   width: 100%;
   height: 300px;
   padding: 40px;
-
-  align-items: center;
-  justify-content: center;
 }
 
 .quote {
@@ -232,9 +221,6 @@ p {
 .order-section {
   height: 30vh;
   background-color: #121212;
-
-  align-items: center;
-  justify-content: center;
 }
 
 .banner {
@@ -270,8 +256,6 @@ footer {
   background-color: #121212;
   color: white;
 
-  align-items: center;
-  justify-content: center;
   gap: 20px;
 }
 
