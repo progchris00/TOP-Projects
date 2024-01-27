@@ -227,6 +227,7 @@ p {
   height: 150px;
   background-color: #1e1e1f;
   border-radius: 16px;
+  padding: 40px;
 
   align-items: center;
   justify-content: space-around;
