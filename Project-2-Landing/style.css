@@ -130,6 +130,10 @@ p {
   display: flex;
 }
 
+.column {
+  flex-direction: column;
+}
+
 .hero {
   align-items: center;
   justify-content: center;
@@ -152,7 +156,6 @@ p {
 }
 
 .description {
-  flex-direction: column;
   align-items: flex-start;
 
   padding: 60px;
@@ -168,7 +171,6 @@ p {
 
 /* Items*/
 .items {
-  flex-direction: column;
   align-items: center;
   justify-content: center;
 
@@ -177,8 +179,6 @@ p {
 }
 
 .item {
-  flex-direction: column;
-
   width: 300px;
 }
 
