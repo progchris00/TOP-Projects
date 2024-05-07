@@ -30,17 +30,24 @@ const playRound = (humanChoice, computerChoice) => {
     }
 };
 
-for (let index = 0; index < rounds; index++) {
-    const humanChoice = getHumanChoice();
-    const computerChoice = getComputerChoice();
-    playRound(humanChoice, computerChoice);
-};
+const announceWinner = () => {
+    if (humanScore > computerScore) {
+        console.log("You won!");
+    } else if (humanScore < computerScore) {
+        console.log(`You lose! ${humanScore}-${computerScore}`);
+    } else {
+        console.log("Draw!");
+    };
+}
 
-if (humanScore > computerScore) {
-    console.log("You won!");
-} else if (humanScore < computerScore) {
-    console.log(`You lose! ${humanScore}-${computerScore}`);
-} else {
-    console.log("Draw!");
-};
+const playGame = () => {
+    for (let index = 0; index < rounds; index++) {
+        const humanChoice = getHumanChoice();
+        const computerChoice = getComputerChoice();
+        playRound(humanChoice, computerChoice);
+    };
 
+    announceWinner();
+}
+
+playGame()
