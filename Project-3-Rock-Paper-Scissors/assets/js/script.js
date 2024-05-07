@@ -1,36 +1,46 @@
-let humanScore;
-let computerScore;
+const rounds = 5;
+let humanScore = 0;
+let computerScore = 0;
 
 const getComputerChoice = () => {
-    const choices = ["rock", "paper", "scissors"]
+    const choices = ["rock", "paper", "scissors"];
     const choice = Math.floor(Math.random() * 3);
-    return choices[choice]
+    return choices[choice];
 }
 
 const getHumanChoice = () => {
-    return prompt()
+    return prompt();
 } 
 
 const playRound = (humanChoice, computerChoice) => {
-    beatsBy = {
+    const beatsBy = {
         "scissors":"rock", 
         "rock":"paper",
         "paper":"scissors"
     };
 
-    console.log(computerChoice)
-
     if (beatsBy[humanChoice] === computerChoice) {
-        console.log(`You lose!, ${computerChoice} beats ${humanChoice}`)
-    } else if (beatsBy[computerChoice] === humanChoice & humanChoice !== computerChoice){
-        console.log("You won!")
+        console.log(`You lose!, ${computerChoice} beats ${humanChoice}`);
+        computerScore += 1;
+    } else if (beatsBy[computerChoice] === humanChoice && humanChoice !== computerChoice){
+        console.log("You won!");
+        humanScore += 1;
     } else {
-        console.log("Draw!")
+        console.log("Draw!");
     }
-}
+};
 
-const humanChoice = getHumanChoice();
-const computerChoice = getComputerChoice();
+for (let index = 0; index < rounds; index++) {
+    const humanChoice = getHumanChoice();
+    const computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
+};
 
-playRound(humanChoice, computerChoice);
+if (humanScore > computerScore) {
+    console.log("You won!");
+} else if (humanScore < computerScore) {
+    console.log(`You lose! ${humanScore}-${computerScore}`);
+} else {
+    console.log("Draw!");
+};
 
