@@ -1,10 +1,13 @@
 const buttonSection = document.querySelector(".choices");
 const computerScoreContainer = document.querySelector(".computer-score");
 const playerScoreContainer = document.querySelector(".player-score");
+const roundResult = document.querySelector(".round-result");
+const roundContainer = document.querySelector(".round-container");
 
 const rounds = 5;
 let humanScore = 0;
 let computerScore = 0;
+let currentRound = 1;
 
 const getComputerChoice = () => {
   const choices = ["water", "grass", "fire"];
@@ -20,19 +23,22 @@ const playRound = (humanChoice, computerChoice) => {
   };
 
   if (beatsBy[humanChoice] === computerChoice) {
-    console.log(`You lose!, ${computerChoice} beats ${humanChoice}`);
+    roundResult.textContent = `You lose! ${computerChoice} beats ${humanChoice}`;
     computerScore += 1;
     computerScoreContainer.textContent = `Computer Score: ${computerScore}`;
   } else if (
     beatsBy[computerChoice] === humanChoice &&
     humanChoice !== computerChoice
   ) {
-    console.log("You won!");
+    roundResult.textContent = "You won!";
     humanScore += 1;
     playerScoreContainer.textContent = `Player Score: ${humanScore}`;
   } else {
-    console.log("Draw!");
+    roundResult.textContent = "Draw!";
   }
+
+  currentRound += 1;
+  roundContainer.textContent = `Round ${currentRound}`;
 };
 
 const announceWinner = () => {
