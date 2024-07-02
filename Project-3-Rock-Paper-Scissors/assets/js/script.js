@@ -25,14 +25,14 @@ const playRound = (humanChoice, computerChoice) => {
   if (beatsBy[humanChoice] === computerChoice) {
     roundResult.textContent = `You lose! ${computerChoice} beats ${humanChoice}`;
     computerScore += 1;
-    computerScoreContainer.textContent = `Computer Score: ${computerScore}`;
+    computerScoreContainer.textContent = `Computer: ${computerScore}`;
   } else if (
     beatsBy[computerChoice] === humanChoice &&
     humanChoice !== computerChoice
   ) {
     roundResult.textContent = "You won!";
     humanScore += 1;
-    playerScoreContainer.textContent = `Player Score: ${humanScore}`;
+    playerScoreContainer.textContent = `Player: ${humanScore}`;
   } else {
     roundResult.textContent = "Draw!";
   }

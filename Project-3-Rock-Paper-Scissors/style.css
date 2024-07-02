@@ -18,6 +18,11 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "Montserrat";
+  src: url("assets/fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+}
+
 body {
   color: var(--primary-color);
   font-family: var(--font-family);
@@ -112,15 +117,19 @@ body {
     -2px 0 0 var(--border-color), 2px 0 0 var(--border-color),
     0 -2px 0 var(--border-color), 0 2px 0 var(--border-color);
   letter-spacing: 2px;
+  font-weight: 700;
 }
 
 .player-buttons button {
   cursor: pointer;
   font-size: 1.2rem;
+  font-family: "Montserrat";
+  font-weight: 700;
 }
 
 .round-result {
-  font-size: 2.3rem;
+  font-weight: 700;
+  font-size: 2rem;
   margin: 0;
 }
 
