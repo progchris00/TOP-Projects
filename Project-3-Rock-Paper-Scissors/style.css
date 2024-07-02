@@ -22,6 +22,8 @@ body {
   color: var(--primary-color);
   font-family: var(--font-family);
   margin: 0;
+  background-image: url("assets/images/forest.jpg");
+  background-size: cover;
 }
 
 .choices-container {
