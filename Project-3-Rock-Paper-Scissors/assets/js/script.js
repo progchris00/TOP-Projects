@@ -66,8 +66,15 @@ buttonSection.onclick = (event) => {
   computerImgChoice.src = `./assets/images/${computerChoice}.png`;
   computerImgChoice.setAttribute("class", "pokemon-choice");
 
-  playerStage.insertBefore(playerImgChoice, playerStage.firstChild);
-  computerStage.insertBefore(computerImgChoice, computerStage.firstChild);
+  if (playerStage.childElementCount === 1) {
+    playerStage.insertBefore(playerImgChoice, playerStage.firstChild);
+    computerStage.insertBefore(computerImgChoice, computerStage.firstChild);
+  } else {
+    playerStage.removeChild(playerStage.firstChild);
+    computerStage.removeChild(computerStage.firstChild);
+    playerStage.insertBefore(playerImgChoice, playerStage.firstChild);
+    computerStage.insertBefore(computerImgChoice, computerStage.firstChild);
+  }
 
   playRound(humanChoice, computerChoice);
 
