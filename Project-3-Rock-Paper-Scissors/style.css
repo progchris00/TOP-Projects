@@ -40,14 +40,17 @@ body {
 .game-container {
   max-width: 1000px;
   width: 80%;
+  background-color: rgba(28, 104, 94, 0.4);
+  border: 3px solid var(--border-color);
+  border-radius: 20px;
 }
 
 .texts {
   background-color: var(--green-fill);
-  border: 3px solid var(--border-color);
+  border-bottom: 3px solid var(--border-color);
   padding: 10px 0;
   height: 80px;
-  border-radius: 24px;
+  border-radius: 20px 20px 0 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,10 +81,10 @@ body {
 }
 
 .player-buttons {
-  border: 3px solid var(--border-color);
   padding: 20px;
-  border-radius: 24px;
-  background-color: rgba(28, 104, 94, 0.4);
+  border-radius: 0 0 20px 20px;
+  background-color: var(--green-fill);
+  border-top: 3px solid var(--border-color);
 }
 
 .choices {
@@ -146,6 +149,7 @@ body {
 }
 
 .round-result {
+  text-align: center;
   font-weight: 700;
   font-size: 2rem;
   margin: 0;
