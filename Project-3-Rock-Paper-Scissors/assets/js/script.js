@@ -6,8 +6,10 @@ const roundContainer = document.querySelector(".round-container");
 const playerStage = document.querySelector(".player-choice.stage");
 const computerStage = document.querySelector(".computer-choice.stage");
 const texts = document.querySelector(".texts");
+const choicesContainer = document.querySelector(".choices-container");
+const finalResultContainer = document.querySelector(".final-result-container");
+const finalResultText = document.querySelector(".final-result-text");
 
-const rounds = 5;
 let humanScore = 0;
 let computerScore = 0;
 let currentRound = 1;
@@ -48,12 +50,16 @@ const playRound = (humanChoice, computerChoice) => {
 };
 
 const announceWinner = () => {
-  if (humanScore > computerScore) {
-    console.log("You won!");
-  } else if (humanScore < computerScore) {
-    console.log(`You lose! ${humanScore}-${computerScore}`);
-  } else {
-    console.log("Draw!");
+  if (humanScore === 5) {
+    choicesContainer.classList.add("hidden");
+    finalResultContainer.classList.remove("hidden");
+    finalResultContainer.style.backgroundColor = "#2e4595";
+    finalResultText.textContent = `You won! ${humanScore}-${computerScore}`;
+  } else if (computerScore === 5) {
+    choicesContainer.classList.add("hidden");
+    finalResultContainer.classList.remove("hidden");
+    finalResultContainer.style.backgroundColor = "#f47932";
+    finalResultText.textContent = `You lose! ${humanScore}-${computerScore}`;
   }
 };
 
@@ -80,5 +86,5 @@ buttonSection.onclick = (event) => {
 
   playRound(humanChoice, computerChoice);
 
-  // announceWinner();
+  announceWinner();
 };
