@@ -3,6 +3,8 @@ const computerScoreContainer = document.querySelector(".computer-score");
 const playerScoreContainer = document.querySelector(".player-score");
 const roundResult = document.querySelector(".round-result");
 const roundContainer = document.querySelector(".round-container");
+const playerStage = document.querySelector(".player-choice.stage");
+const computerStage = document.querySelector(".computer-choice.stage");
 
 const rounds = 5;
 let humanScore = 0;
@@ -55,6 +57,18 @@ buttonSection.onclick = (event) => {
   const buttonClicked = event.target.getAttribute("id");
   const humanChoice = buttonClicked;
   const computerChoice = getComputerChoice();
+
+  const playerImgChoice = document.createElement("img");
+  playerImgChoice.src = `./assets/images/${buttonClicked}.png`;
+  playerImgChoice.setAttribute("class", "pokemon-choice");
+
+  const computerImgChoice = document.createElement("img");
+  computerImgChoice.src = `./assets/images/${computerChoice}.png`;
+  computerImgChoice.setAttribute("class", "pokemon-choice");
+
+  playerStage.insertBefore(playerImgChoice, playerStage.firstChild);
+  computerStage.insertBefore(computerImgChoice, computerStage.firstChild);
+
   playRound(humanChoice, computerChoice);
 
   // announceWinner();
