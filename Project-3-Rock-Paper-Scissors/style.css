@@ -110,8 +110,20 @@ body {
 
 .stage {
   display: flex;
-  min-height: 200px;
-  align-items: flex-end;
+  flex-direction: column;
+  min-height: 250px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.pokemon-choice {
+  position: relative;
+  width: 150px;
+  top: 50px;
+}
+
+.computer-choice .pokemon-choice {
+  transform: scaleX(-1);
 }
 
 /* Fonts */
