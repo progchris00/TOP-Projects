@@ -108,6 +108,12 @@ body {
   background-color: #4b8166;
 }
 
+.stage {
+  display: flex;
+  min-height: 200px;
+  align-items: flex-end;
+}
+
 /* Fonts */
 .choices-container {
   font-size: 2.3rem;
