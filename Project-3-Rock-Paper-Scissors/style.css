@@ -74,10 +74,16 @@ body {
 .left,
 .right {
   min-width: 350px;
+  width: 100%;
+}
+
+.stage .grass-stage {
+  width: 100%;
 }
 
 .center p {
   margin: 0;
+  text-align: center;
 }
 
 .player-buttons {
@@ -89,7 +95,9 @@ body {
 
 .choices {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .choices button {
@@ -169,3 +177,24 @@ body {
 }
 
 /* End of fonts */
+
+@media only screen and (max-width: 1080px) {
+  .choices-container {
+    flex-direction: column;
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .stage {
+    min-height: 100px;
+  }
+
+  /* Fonts */
+  .round-result {
+    font-size: 1.5rem;
+  }
+
+  .player-buttons button {
+    font-size: 1rem;
+  }
+}
