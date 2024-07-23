@@ -5,7 +5,7 @@ const roundResult = document.querySelector(".round-result");
 const roundContainer = document.querySelector(".round-container");
 const playerStage = document.querySelector(".player-choice.stage");
 const computerStage = document.querySelector(".computer-choice.stage");
-const texts = document.querySelector(".texts");
+const header = document.querySelector(".header");
 const choicesContainer = document.querySelector(".choices-container");
 const finalResultContainer = document.querySelector(".final-result-container");
 const finalResultText = document.querySelector(".final-result-text");
@@ -28,25 +28,24 @@ const playRound = (humanChoice, computerChoice) => {
   };
 
   if (beatsBy[humanChoice] === computerChoice) {
-    texts.style.backgroundColor = "#f47932";
-    roundResult.textContent = `You lose! ${computerChoice} beats ${humanChoice}`;
+    header.style.backgroundColor = "#f47932";
+    roundResult.textContent = `You lose!`;
     computerScore += 1;
     computerScoreContainer.textContent = `Computer: ${computerScore}`;
   } else if (
     beatsBy[computerChoice] === humanChoice &&
     humanChoice !== computerChoice
   ) {
-    texts.style.backgroundColor = "#2e4595";
+    header.style.backgroundColor = "#2e4595";
     roundResult.textContent = "You won!";
     humanScore += 1;
     playerScoreContainer.textContent = `Player: ${humanScore}`;
   } else {
-    texts.style.backgroundColor = "";
+    header.style.backgroundColor = "";
     roundResult.textContent = "Draw!";
   }
 
   currentRound += 1;
-  roundContainer.textContent = `Round ${currentRound}`;
 };
 
 const announceWinner = () => {
