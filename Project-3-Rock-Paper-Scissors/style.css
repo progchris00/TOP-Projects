@@ -76,7 +76,7 @@ h6 {
 body {
   color: var(--primary-color);
   font-family: var(--font-family);
-  margin: 0;
+  margin: 0 10px;
   background-image: url("assets/images/forest.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -106,6 +106,11 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin: 0;
 }
 
 .battle-field {
@@ -114,7 +119,19 @@ body {
 
 .choices-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  color: var(--primary-color);
+  text-shadow: -2px -2px 0 var(--border-color), 2px -2px 0 var(--border-color),
+    -2px 2px 0 var(--border-color), 2px 2px 0 var(--border-color),
+    -2px 0 0 var(--border-color), 2px 0 0 var(--border-color),
+    0 -2px 0 var(--border-color), 0 2px 0 var(--border-color);
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.player-score,
+.computer-score {
+  font-size: 1.4rem;
 }
 
 .left,
@@ -140,11 +157,16 @@ body {
   gap: 20px;
 }
 
-.choices button {
-  padding: 10px 30px;
+.buttons {
+  padding: 8px 0;
   border-radius: 10px;
   border: none;
+  max-width: 130px;
+  width: 100%;
   color: var(--primary-color);
+  cursor: pointer;
+  font-size: 1.125rem;
+  font-weight: 700;
 }
 
 #water {
@@ -190,39 +212,17 @@ body {
   display: none;
 }
 
-/* Fonts */
-.choices-container {
-  font-size: 1.7rem;
-  color: var(--primary-color);
-  text-shadow: -2px -2px 0 var(--border-color), 2px -2px 0 var(--border-color),
-    -2px 2px 0 var(--border-color), 2px 2px 0 var(--border-color),
-    -2px 0 0 var(--border-color), 2px 0 0 var(--border-color),
-    0 -2px 0 var(--border-color), 0 2px 0 var(--border-color);
-  letter-spacing: 2px;
-  font-weight: 700;
-}
-
-.player-buttons button {
-  cursor: pointer;
-  font-size: 1.2rem;
-  font-family: "Montserrat";
-  font-weight: 700;
-}
-
-.round-result {
-  text-align: center;
-  font-weight: 700;
-  font-size: 2rem;
-  margin: 0;
-}
-
 .versus {
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 /* End of fonts */
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
+  body {
+    margin: 0;
+  }
+
   .game-container {
     display: flex;
     flex-direction: column;
@@ -234,9 +234,11 @@ body {
 
   .header {
     border-radius: 0 0 20px 20px;
+    font-size: 1rem;
   }
 
   .choices-container {
+    display: flex;
     height: 100%;
     flex-direction: column;
     justify-content: space-between;
@@ -245,19 +247,18 @@ body {
     margin: 0;
   }
 
-  .battle-field {
-    height: 100%;
-    padding: 0;
+  .left {
+    flex-direction: column-reverse;
+  }
+
+  .player-score,
+  .computer-score {
+    font-size: 1.25rem;
   }
 
   .pokemon-choice {
     width: 70px;
     top: 30px;
-  }
-
-  .player-score,
-  .computer-score {
-    margin: 10px 0;
   }
 
   .player-buttons {
@@ -272,31 +273,15 @@ body {
     min-height: 110px;
   }
 
-  .left,
-  .right {
-    min-height: 180px;
-    justify-content: flex-end;
-  }
-
   .player-buttons {
     padding: 10px;
-  }
-
-  .choices button {
-    padding: 10px 20px;
   }
 
   .choices {
     gap: 5px;
   }
-
-  /* Fonts */
-  .round-result {
-    font-size: 1.5rem;
-  }
-
-  .player-buttons button {
-    font-size: 1rem;
+  .buttons {
+    font-size: 0.875rem;
   }
 
   .versus {
