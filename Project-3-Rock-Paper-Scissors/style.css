@@ -93,6 +93,7 @@ body {
   background-color: rgba(28, 104, 94, 0.4);
   border: 3px solid var(--border-color);
   border-radius: 20px;
+  overflow: hidden;
 }
 
 .header {
@@ -164,14 +165,19 @@ body {
   font-size: 2rem;
 }
 
-.final-result-text {
-  min-height: 200px;
-  font-size: 3rem;
-  font-weight: 700;
+.final-result-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 250px;
 }
+
+.final-result-text {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
 .hidden {
   display: none;
 }
@@ -223,7 +229,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100dvh;
+    height: 100svh;
     border-radius: 0;
     max-width: none;
   }
@@ -283,5 +289,9 @@ body {
 
   .versus {
     margin: 10px 0;
+  }
+
+  .hidden {
+    display: none;
   }
 }

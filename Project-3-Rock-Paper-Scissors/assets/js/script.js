@@ -9,8 +9,10 @@ const header = document.querySelector(".header");
 const choicesContainer = document.querySelector(".choices-container");
 const finalResultContainer = document.querySelector(".final-result-container");
 const finalResultText = document.querySelector(".final-result-text");
+const playerButtons = document.querySelector(".player-buttons");
+const playAgain = document.querySelector(".play-again");
 
-let humanScore = 0;
+let humanScore = 5;
 let computerScore = 0;
 let currentRound = 1;
 
@@ -49,14 +51,17 @@ const playRound = (humanChoice, computerChoice) => {
 };
 
 const announceWinner = () => {
+  header.classList.add("hidden");
+  playerButtons.classList.add("hidden");
+  roundResult.textContent = "";
+  choicesContainer.classList.add("hidden");
+  finalResultContainer.classList.remove("hidden");
+  playAgain.classList.remove("hidden");
+
   if (humanScore === 5) {
-    choicesContainer.classList.add("hidden");
-    finalResultContainer.classList.remove("hidden");
     finalResultContainer.style.backgroundColor = "#2e4595";
     finalResultText.textContent = `You won! ${humanScore}-${computerScore}`;
   } else if (computerScore === 5) {
-    choicesContainer.classList.add("hidden");
-    finalResultContainer.classList.remove("hidden");
     finalResultContainer.style.backgroundColor = "#f47932";
     finalResultText.textContent = `You lose! ${humanScore}-${computerScore}`;
   }
@@ -85,5 +90,7 @@ buttonSection.onclick = (event) => {
 
   playRound(humanChoice, computerChoice);
 
-  announceWinner();
+  if (computerScore === 5 || humanScore === 5) {
+    announceWinner();
+  }
 };
