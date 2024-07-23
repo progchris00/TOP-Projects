@@ -49,9 +49,9 @@ body {
   background-color: var(--green-fill);
   border-bottom: 3px solid var(--border-color);
   padding: 10px 0;
-  height: 80px;
   border-radius: 20px 20px 0 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -144,8 +144,7 @@ body {
 }
 
 /* Fonts */
-.choices-container,
-.round-container {
+.choices-container {
   font-size: 2.3rem;
   color: var(--primary-color);
   text-shadow: -2px -2px 0 var(--border-color), 2px -2px 0 var(--border-color),
@@ -168,11 +167,6 @@ body {
   font-weight: 700;
   font-size: 2rem;
   margin: 0;
-}
-
-.round-container {
-  margin: 0;
-  text-align: center;
 }
 
 /* End of fonts */
