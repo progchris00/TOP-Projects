@@ -58,8 +58,11 @@ body {
 
 .choices-container {
   display: flex;
-  justify-content: space-between;
-  margin-top: 40px;
+  justify-content: space-around;
+}
+
+.battle-field {
+  padding: 20px 0;
 }
 
 .left,
@@ -69,16 +72,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.left,
-.right {
-  min-width: 350px;
-  width: 100%;
-}
-
-.stage .grass-stage {
-  width: 100%;
 }
 
 .center p {
@@ -151,7 +144,8 @@ body {
 }
 
 /* Fonts */
-.choices-container {
+.choices-container,
+.round-container {
   font-size: 2.3rem;
   color: var(--primary-color);
   text-shadow: -2px -2px 0 var(--border-color), 2px -2px 0 var(--border-color),
@@ -174,6 +168,11 @@ body {
   font-weight: 700;
   font-size: 2rem;
   margin: 0;
+}
+
+.round-container {
+  margin: 0;
+  text-align: center;
 }
 
 /* End of fonts */
