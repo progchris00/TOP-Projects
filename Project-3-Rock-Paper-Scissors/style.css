@@ -29,40 +29,42 @@ body {
   margin: 0;
   background-image: url("assets/images/forest.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
   height: 100vh;
 
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
 }
 
 .game-container {
-  max-width: 1000px;
-  width: 80%;
+  width: 100%;
+  max-width: 900px;
   background-color: rgba(28, 104, 94, 0.4);
   border: 3px solid var(--border-color);
   border-radius: 20px;
 }
 
-.texts {
-  background-color: var(--green-fill);
-  border-bottom: 3px solid var(--border-color);
+.header {
   padding: 10px 0;
+  border-bottom: 3px solid var(--border-color);
   border-radius: 20px 20px 0 0;
+  background-color: var(--green-fill);
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
+.battle-field {
+  padding: 20px 0;
+}
+
 .choices-container {
   display: flex;
   justify-content: space-around;
-}
-
-.battle-field {
-  padding: 20px 0;
 }
 
 .left,
@@ -72,11 +74,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.center p {
-  margin: 0;
-  text-align: center;
 }
 
 .player-buttons {
@@ -97,6 +94,7 @@ body {
   padding: 10px 30px;
   border-radius: 10px;
   border: none;
+  width: 200px;
   color: var(--primary-color);
 }
 
@@ -122,7 +120,7 @@ body {
 
 .pokemon-choice {
   position: relative;
-  width: 150px;
+  width: 110px;
   top: 50px;
 }
 
@@ -145,7 +143,7 @@ body {
 
 /* Fonts */
 .choices-container {
-  font-size: 2.3rem;
+  font-size: 1.7rem;
   color: var(--primary-color);
   text-shadow: -2px -2px 0 var(--border-color), 2px -2px 0 var(--border-color),
     -2px 2px 0 var(--border-color), 2px 2px 0 var(--border-color),
@@ -169,17 +167,51 @@ body {
   margin: 0;
 }
 
+.versus {
+  font-size: 3rem;
+}
+
 /* End of fonts */
 
 @media only screen and (max-width: 1080px) {
-  .choices-container {
+  .game-container {
+    display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    border-radius: 0;
+    max-width: none;
+  }
+
+  .header {
+    border-radius: 0 0 20px 20px;
+  }
+
+  .choices-container {
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     font-size: 1.5rem;
     margin: 0;
   }
 
+  .battle-field {
+    height: 100%;
+  }
+
+  .left,
+  .right,
+  .center {
+    flex-direction: row-reverse;
+  }
+
+  .player-buttons {
+    border-radius: 20px 20px 0 0;
+  }
+
   .stage {
-    min-height: 100px;
+    min-height: 80px;
   }
 
   /* Fonts */
@@ -189,5 +221,9 @@ body {
 
   .player-buttons button {
     font-size: 1rem;
+  }
+
+  .versus {
+    margin: 10px 0;
   }
 }
