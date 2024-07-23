@@ -94,7 +94,6 @@ body {
   padding: 10px 30px;
   border-radius: 10px;
   border: none;
-  width: 200px;
   color: var(--primary-color);
 }
 
@@ -173,7 +172,7 @@ body {
 
 /* End of fonts */
 
-@media only screen and (max-width: 1080px) {
+@media only screen and (max-width: 800px) {
   .game-container {
     display: flex;
     flex-direction: column;
@@ -198,20 +197,47 @@ body {
 
   .battle-field {
     height: 100%;
+    padding: 0;
   }
 
-  .left,
-  .right,
-  .center {
-    flex-direction: row-reverse;
+  .pokemon-choice {
+    width: 70px;
+    top: 30px;
+  }
+
+  .player-score,
+  .computer-score {
+    margin: 10px 0;
   }
 
   .player-buttons {
     border-radius: 20px 20px 0 0;
   }
 
+  .grass-stage {
+    width: 200px;
+  }
+
   .stage {
-    min-height: 80px;
+    min-height: 110px;
+  }
+
+  .left,
+  .right {
+    min-height: 180px;
+    justify-content: flex-end;
+  }
+
+  .player-buttons {
+    padding: 10px;
+  }
+
+  .choices button {
+    padding: 10px 20px;
+  }
+
+  .choices {
+    gap: 5px;
   }
 
   /* Fonts */
