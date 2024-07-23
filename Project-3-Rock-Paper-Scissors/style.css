@@ -84,7 +84,6 @@ body {
 
   display: flex;
   align-items: center;
-  flex-direction: column;
   justify-content: center;
 }
 
@@ -113,13 +112,12 @@ body {
   margin: 0;
 }
 
-.battle-field {
-  padding: 20px 0;
-}
-
 .choices-container {
+  padding: 20px 0;
+
   display: flex;
   justify-content: space-evenly;
+
   color: var(--primary-color);
   text-shadow: -2px -2px 0 var(--border-color), 2px -2px 0 var(--border-color),
     -2px 2px 0 var(--border-color), 2px 2px 0 var(--border-color),
@@ -129,11 +127,6 @@ body {
   font-weight: 700;
 }
 
-.player-score,
-.computer-score {
-  font-size: 1.4rem;
-}
-
 .left,
 .center,
 .right {
@@ -141,6 +134,46 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.pokemon-choice {
+  position: relative;
+  width: 150px;
+  top: 50px;
+}
+
+.computer-choice .pokemon-choice {
+  transform: scaleX(-1);
+}
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  min-height: 280px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.player-score,
+.computer-score {
+  margin-top: 20px;
+  font-size: 1.4rem;
+}
+
+.versus {
+  font-size: 2rem;
+}
+
+.final-result-text {
+  min-height: 200px;
+  font-size: 3rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hidden {
+  display: none;
 }
 
 .player-buttons {
@@ -181,43 +214,6 @@ body {
   background-color: #4b8166;
 }
 
-.stage {
-  display: flex;
-  flex-direction: column;
-  min-height: 250px;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.pokemon-choice {
-  position: relative;
-  width: 110px;
-  top: 50px;
-}
-
-.computer-choice .pokemon-choice {
-  transform: scaleX(-1);
-}
-
-.final-result-text {
-  min-height: 200px;
-  font-size: 3rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hidden {
-  display: none;
-}
-
-.versus {
-  font-size: 2rem;
-}
-
-/* End of fonts */
-
 @media only screen and (max-width: 600px) {
   body {
     margin: 0;
@@ -227,19 +223,19 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100vh;
+    height: 100dvh;
     border-radius: 0;
     max-width: none;
   }
 
   .header {
     border-radius: 0 0 20px 20px;
-    font-size: 1rem;
+    font-size: 1.125rem;
   }
 
   .choices-container {
-    display: flex;
     height: 100%;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -270,7 +266,7 @@ body {
   }
 
   .stage {
-    min-height: 110px;
+    min-height: 130px;
   }
 
   .player-buttons {
@@ -280,6 +276,7 @@ body {
   .choices {
     gap: 5px;
   }
+
   .buttons {
     font-size: 0.875rem;
   }
