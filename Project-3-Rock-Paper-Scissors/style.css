@@ -229,7 +229,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100svh;
+    height: 100vh;
     border-radius: 0;
     max-width: none;
   }
