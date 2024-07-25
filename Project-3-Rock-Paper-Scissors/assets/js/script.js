@@ -51,20 +51,12 @@ const playRound = (humanChoice, computerChoice) => {
 };
 
 const announceWinner = () => {
-  header.classList.add("hidden");
-  playerButtons.classList.add("hidden");
-  roundResult.textContent = "";
-  choicesContainer.classList.add("hidden");
-  finalResultContainer.classList.remove("hidden");
-  playAgain.classList.remove("hidden");
+  toggleElements();
 
-  if (humanScore === 5) {
-    finalResultContainer.style.backgroundColor = "#2e4595";
-    finalResultText.textContent = `You won! ${humanScore}-${computerScore}`;
-  } else if (computerScore === 5) {
-    finalResultContainer.style.backgroundColor = "#f47932";
-    finalResultText.textContent = `You lose! ${humanScore}-${computerScore}`;
-  }
+  const result = humanScore === 5 ? "won" : "lose";
+  const bgColor = humanScore === 5 ? "#2e4595" : "#f47932";
+  finalResultContainer.style.backgroundColor = bgColor;
+  finalResultText.textContent = `You ${result}! ${humanScore}-${computerScore}`;
 };
 
 buttonSection.onclick = (event) => {
@@ -93,4 +85,22 @@ buttonSection.onclick = (event) => {
   if (computerScore === 5 || humanScore === 5) {
     announceWinner();
   }
+};
+
+const toggleElements = () => {
+  header.classList.toggle("hidden");
+  playerButtons.classList.toggle("hidden");
+  choicesContainer.classList.toggle("hidden");
+  finalResultContainer.classList.toggle("hidden");
+  playAgain.classList.toggle("hidden");
+};
+
+playAgain.onclick = () => {
+  toggleElements();
+  humanScore = 0;
+  computerScore = 0;
+  roundResult.textContent = "Rock Paper Scissors - Pokemon Edition!";
+  header.style.backgroundColor = "#5a9e7b";
+  computerScoreContainer.textContent = `Computer: ${computerScore}`;
+  playerScoreContainer.textContent = `Player: ${humanScore}`;
 };
