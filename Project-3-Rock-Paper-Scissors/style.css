@@ -197,8 +197,9 @@ body {
 }
 
 .buttons {
+  flex: 90px;
   padding: 8px 0;
-  border-radius: 10px;
+  border-radius: 8px;
   border: none;
   max-width: 130px;
   width: 100%;
@@ -228,7 +229,6 @@ body {
   .game-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     height: 100vh;
     border-radius: 0;
     max-width: none;
@@ -240,17 +240,17 @@ body {
   }
 
   .choices-container {
-    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
     font-size: 1.5rem;
     margin: 0;
+    padding: 0;
   }
 
   .left {
     flex-direction: column-reverse;
+    margin-bottom: 40px;
   }
 
   .player-score,
@@ -264,6 +264,7 @@ body {
   }
 
   .player-buttons {
+    width: 100%;
     border-radius: 20px 20px 0 0;
   }
 
@@ -276,6 +277,8 @@ body {
   }
 
   .player-buttons {
+    bottom: 0;
+    position: absolute;
     padding: 10px;
   }
 
@@ -285,10 +288,6 @@ body {
 
   .buttons {
     font-size: 0.875rem;
-  }
-
-  .versus {
-    margin: 10px 0;
   }
 
   .hidden {
