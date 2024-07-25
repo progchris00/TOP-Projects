@@ -1,20 +1,22 @@
-const buttonSection = document.querySelector(".choices");
-const computerScoreContainer = document.querySelector(".computer-score");
-const playerScoreContainer = document.querySelector(".player-score");
-const roundResult = document.querySelector(".round-result");
-const roundContainer = document.querySelector(".round-container");
-const playerStage = document.querySelector(".player-choice.stage");
-const computerStage = document.querySelector(".computer-choice.stage");
 const header = document.querySelector(".header");
+const roundResult = document.querySelector(".round-result");
+
 const choicesContainer = document.querySelector(".choices-container");
+const playerStage = document.querySelector(".player-choice.stage");
+const playerScoreContainer = document.querySelector(".player-score");
+
+const computerStage = document.querySelector(".computer-choice.stage");
+const computerScoreContainer = document.querySelector(".computer-score");
+
+const playerButtons = document.querySelector(".player-buttons");
+const buttonSection = document.querySelector(".choices");
+
 const finalResultContainer = document.querySelector(".final-result-container");
 const finalResultText = document.querySelector(".final-result-text");
-const playerButtons = document.querySelector(".player-buttons");
 const playAgain = document.querySelector(".play-again");
 
-let humanScore = 5;
+let humanScore = 0;
 let computerScore = 0;
-let currentRound = 1;
 
 const getComputerChoice = () => {
   const choices = ["water", "grass", "fire"];
@@ -46,8 +48,6 @@ const playRound = (humanChoice, computerChoice) => {
     header.style.backgroundColor = "";
     roundResult.textContent = "Draw!";
   }
-
-  currentRound += 1;
 };
 
 const announceWinner = () => {
