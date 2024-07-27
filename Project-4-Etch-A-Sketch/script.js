@@ -1,30 +1,21 @@
-const container = document.querySelector(".container");
-const picker = document.querySelector(".picker");
-const clearButton = document.querySelector(".clear-button");
+const container = document.querySelector(".sketch-container");
+const picker = document.querySelector(".picker-tool");
+const clearButton = document.querySelector(".clearing-tool");
+const sketchingArea = document.querySelector(".sketching-area");
 
-const rowTotalCount = 32;
-const columnTotalCount = 32;
+const pixelTotalCount = 16 * 16;
 
 let pixelCount = 0;
-let rowCount = 0;
-
-for (let row = 1; row <= rowTotalCount; row++) {
-  const row = document.createElement("div");
-  row.classList.add("row", rowCount);
-  container.appendChild(row);
-  rowCount++;
-
-  for (let column = 1; column <= columnTotalCount; column++) {
-    const div = document.createElement("div");
-    div.classList.add("pixel");
-    div.classList.add(pixelCount);
-    row.appendChild(div);
-    pixelCount++;
-  }
-}
 
 let isDrawing = false;
 let currentColor;
+
+for (let pixelCount = 1; pixelCount <= pixelTotalCount; pixelCount++) {
+  const pixel = document.createElement("div");
+  pixel.classList.add("pixel", pixelCount);
+  pixel.draggable = false;
+  sketchingArea.appendChild(pixel);
+}
 
 const allPixels = document.querySelectorAll(".pixel");
 
@@ -42,6 +33,10 @@ allPixels.forEach((pixel) => {
   });
 
   pixel.addEventListener("mouseup", () => {
+    isDrawing = false;
+  });
+
+  pixel.addEventListener("drag", () => {
     isDrawing = false;
   });
 });

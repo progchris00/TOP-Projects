@@ -7,17 +7,15 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <main class="etch-a-sketch">
-      <div class="image-reference"></div>
-      <div class="container"></div>
-      <div class="tools">
-        <div class="color-picker">
-          <input type="color" class="picker" id="picker" />
-        </div>
-        <div class="eraser-button">
-          <button class="clear-button">clear</button>
-        </div>
-        <div class="clear-button"></div>
+    <main class="sketch-container">
+      <div class="photo-reference"></div>
+      <div class="sketching-area">
+        <img src="sample.jpg" alt="" class="reference" />
+      </div>
+      <div class="drawing-tools">
+        <input type="color" class="picker-tool" id="picker-tool" />
+        <button class="erasing-tool">eraser</button>
+        <button class="clearing-tool">clear entire grid</button>
       </div>
     </main>
     <script src="script.js"></script>

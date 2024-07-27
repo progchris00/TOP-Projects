@@ -54,20 +54,33 @@ h6 {
   overflow-wrap: break-word;
 }
 
-.etch-a-sketch {
+.sketch-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   height: 100vh;
+  padding: 1.25rem;
+  gap: 2rem;
 }
 
-.container {
+.sketching-area {
+  width: 16rem;
+  height: 16rem;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .pixel {
   border: 1px solid black;
-  width: 20px;
-  height: 20px;
+  width: 1rem;
+  height: 1rem;
+  z-index: 1;
+}
+
+.reference {
+  position: absolute;
+  width: 16rem;
+  height: 16rem;
+  opacity: 0.7;
 }
