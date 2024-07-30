@@ -2,20 +2,30 @@ const container = document.querySelector(".sketch-container");
 const picker = document.querySelector(".picker-tool");
 const clearButton = document.querySelector(".clearing-tool");
 const sketchingArea = document.querySelector(".sketching-area");
+const gridCountSlider = document.querySelector(".grid-count-slider");
 
-const pixelTotalCount = 16 * 16;
+let pixelTotalCount;
+let rowCount;
+let columnCount;
 
 let pixelCount = 0;
 
 let isDrawing = false;
 let currentColor;
 
-for (let pixelCount = 1; pixelCount <= pixelTotalCount; pixelCount++) {
-  const pixel = document.createElement("div");
-  pixel.classList.add("pixel", pixelCount);
-  pixel.draggable = false;
-  sketchingArea.appendChild(pixel);
-}
+gridCountSlider.addEventListener("change", () => {
+  rowCount = gridCountSlider.value;
+  columnCount = gridCountSlider.value;
+
+  pixelTotalCount = rowCount * columnCount;
+  for (let pixelCount = 1; pixelCount <= pixelTotalCount; pixelCount++) {
+    const pixel = document.createElement("div");
+    pixel.classList.add("pixel", pixelCount);
+    pixel.draggable = false;
+    pixel.style.width = `${100 / rowCount}%`;
+    sketchingArea.appendChild(pixel);
+  }
+});
 
 const allPixels = document.querySelectorAll(".pixel");
 

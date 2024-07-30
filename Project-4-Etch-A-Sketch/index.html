@@ -9,10 +9,22 @@
   <body>
     <main class="sketch-container">
       <div class="photo-reference"></div>
-      <div class="sketching-area">
-        <img src="sample.jpg" alt="" class="reference" />
-      </div>
+      <div class="sketching-area"></div>
       <div class="drawing-tools">
+        <div class="range-slider">
+          <p class="current-grid-count">Grid count: 16 x 16</p>
+          <input
+            type="range"
+            class="grid-count-slider"
+            min="1"
+            max="100"
+            value="16"
+          />
+          <div class="values">
+            <p class="min-value">1</p>
+            <p class="max-value">100</p>
+          </div>
+        </div>
         <input type="color" class="picker-tool" id="picker-tool" />
         <button class="erasing-tool">eraser</button>
         <button class="clearing-tool">clear entire grid</button>

@@ -73,9 +73,17 @@ h6 {
 
 .pixel {
   border: 1px solid black;
-  width: 1rem;
-  height: 1rem;
   z-index: 1;
+}
+
+.range-slider {
+  display: flex;
+  flex-direction: column;
+}
+
+.values {
+  display: flex;
+  justify-content: space-between;
 }
 
 .reference {
