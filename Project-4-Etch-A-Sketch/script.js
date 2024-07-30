@@ -3,12 +3,14 @@ const picker = document.querySelector(".picker-tool");
 const clearButton = document.querySelector(".clearing-tool");
 const sketchingArea = document.querySelector(".sketching-area");
 const gridSizeSlider = document.querySelector(".grid-size-slider");
-const girdCurrentSize = document.querySelector(".grid-current-size");
+const gridCurrentSize = document.querySelector(".grid-current-size");
 
 let columnCount = 16;
 let rowCount = 16;
 let gridSize = columnCount * rowCount;
 let allPixels;
+let isDrawing = false;
+let currentColor;
 
 const loadGrid = () => {
   for (let pixelCount = 0; pixelCount < gridSize; pixelCount++) {
@@ -17,22 +19,20 @@ const loadGrid = () => {
     pixel.draggable = false;
     pixel.style.width = `${100 / columnCount}%`;
     sketchingArea.appendChild(pixel);
-    allPixels = document.querySelectorAll(".pixel");
-    attachEvent();
   }
+
+  allPixels = document.querySelectorAll(".pixel");
+  attachEvent();
 };
 
-gridSizeSlider.addEventListener("change", () => {
+gridSizeSlider.addEventListener("mousemove", () => {
   columnCount = gridSizeSlider.value;
   rowCount = gridSizeSlider.value;
   gridSize = columnCount * rowCount;
   sketchingArea.innerHTML = "";
-  girdCurrentSize.textContent = `Grid count: ${columnCount} x ${rowCount}`;
+
   loadGrid();
 });
-
-let isDrawing = false;
-let currentColor;
 
 const attachEvent = () => {
   allPixels.forEach((pixel) => {
