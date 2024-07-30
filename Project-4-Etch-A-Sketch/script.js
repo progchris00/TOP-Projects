@@ -2,57 +2,66 @@ const container = document.querySelector(".sketch-container");
 const picker = document.querySelector(".picker-tool");
 const clearButton = document.querySelector(".clearing-tool");
 const sketchingArea = document.querySelector(".sketching-area");
-const gridCountSlider = document.querySelector(".grid-count-slider");
+const gridSizeSlider = document.querySelector(".grid-size-slider");
+const girdCurrentSize = document.querySelector(".grid-current-size");
 
-let pixelTotalCount;
-let rowCount;
-let columnCount;
+let columnCount = 16;
+let rowCount = 16;
+let gridSize = columnCount * rowCount;
+let allPixels;
 
-let pixelCount = 0;
+const loadGrid = () => {
+  for (let pixelCount = 0; pixelCount < gridSize; pixelCount++) {
+    const pixel = document.createElement("div");
+    pixel.classList.add("pixel", pixelCount);
+    pixel.draggable = false;
+    pixel.style.width = `${100 / columnCount}%`;
+    sketchingArea.appendChild(pixel);
+    allPixels = document.querySelectorAll(".pixel");
+    attachEvent();
+  }
+};
+
+gridSizeSlider.addEventListener("change", () => {
+  columnCount = gridSizeSlider.value;
+  rowCount = gridSizeSlider.value;
+  gridSize = columnCount * rowCount;
+  sketchingArea.innerHTML = "";
+  girdCurrentSize.textContent = `Grid count: ${columnCount} x ${rowCount}`;
+  loadGrid();
+});
 
 let isDrawing = false;
 let currentColor;
 
-gridCountSlider.addEventListener("change", () => {
-  rowCount = gridCountSlider.value;
-  columnCount = gridCountSlider.value;
-
-  pixelTotalCount = rowCount * columnCount;
-  for (let pixelCount = 1; pixelCount <= pixelTotalCount; pixelCount++) {
-    const pixel = document.createElement("div");
-    pixel.classList.add("pixel", pixelCount);
-    pixel.draggable = false;
-    pixel.style.width = `${100 / rowCount}%`;
-    sketchingArea.appendChild(pixel);
-  }
-});
-
-const allPixels = document.querySelectorAll(".pixel");
-
-allPixels.forEach((pixel) => {
-  pixel.addEventListener("mousedown", () => {
-    currentColor = picker.value;
-    isDrawing = true;
-    pixel.style.background = currentColor;
-  });
-
-  pixel.addEventListener("mouseover", () => {
-    if (isDrawing) {
+const attachEvent = () => {
+  allPixels.forEach((pixel) => {
+    pixel.addEventListener("mousedown", () => {
+      currentColor = picker.value;
+      isDrawing = true;
       pixel.style.background = currentColor;
-    }
-  });
+    });
 
-  pixel.addEventListener("mouseup", () => {
-    isDrawing = false;
-  });
+    pixel.addEventListener("mouseover", () => {
+      if (isDrawing) {
+        pixel.style.background = currentColor;
+      }
+    });
 
-  pixel.addEventListener("drag", () => {
-    isDrawing = false;
+    pixel.addEventListener("mouseup", () => {
+      isDrawing = false;
+    });
+
+    pixel.addEventListener("drag", () => {
+      isDrawing = false;
+    });
   });
-});
+};
 
 clearButton.addEventListener("click", () => {
   allPixels.forEach((pixel) => {
     pixel.style.background = "white";
   });
 });
+
+loadGrid();
