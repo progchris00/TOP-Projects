@@ -78,6 +78,7 @@ const attachEvent = () => {
 
     pixel.addEventListener("drag", () => {
       isDrawing = false;
+      isErasing = false;
     });
   });
 };
@@ -89,7 +90,11 @@ clearButton.addEventListener("click", () => {
 });
 
 eraserTool.addEventListener("click", () => {
-  eraserMode = true;
+  if (eraserMode == false) {
+    eraserMode = true;
+  } else {
+    eraserMode = false;
+  }
   eraserTool.classList.toggle("active");
 });
 

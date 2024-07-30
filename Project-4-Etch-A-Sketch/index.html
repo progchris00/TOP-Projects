@@ -11,6 +11,10 @@
       <div class="photo-reference"></div>
       <div class="sketching-area"></div>
       <div class="drawing-tools">
+        <div class="previous-colors">Previous color</div>
+        <input type="color" class="picker-tool" id="picker-tool" />
+        <button class="erasing-tool">eraser</button>
+        <button class="clearing-tool">clear entire grid</button>
         <div class="range-slider">
           <p class="grid-current-size">Grid count: 16 x 16</p>
           <input
@@ -25,9 +29,6 @@
             <p class="max-value">50</p>
           </div>
         </div>
-        <input type="color" class="picker-tool" id="picker-tool" />
-        <button class="erasing-tool">eraser</button>
-        <button class="clearing-tool">clear entire grid</button>
       </div>
     </main>
     <script src="script.js"></script>
