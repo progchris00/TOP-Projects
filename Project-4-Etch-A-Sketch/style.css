@@ -55,8 +55,9 @@ h6 {
 }
 
 body {
-  background-image: url(background.jpg);
+  /* background-image: url(background.jpg); */
   background-repeat: no-repeat;
+  background-color: #222627;
 }
 
 .sketch-container {
@@ -70,8 +71,8 @@ body {
 }
 
 .sketching-area {
-  width: 500px;
-  height: 500px;
+  min-width: 500px;
+  min-height: 500px;
   display: flex;
   flex-wrap: wrap;
   border: 1px solid black;
@@ -85,12 +86,12 @@ body {
 
 .drawing-tools {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  align-items: center;
   width: 100%;
   max-width: 500px;
   padding: 1.25rem;
   border-radius: 1rem;
+  background-color: #131718;
 }
 
 .previous-color-container {
