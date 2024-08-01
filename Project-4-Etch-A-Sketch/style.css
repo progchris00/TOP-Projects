@@ -89,15 +89,37 @@ body {
   gap: 0.5rem;
   width: 100%;
   max-width: 500px;
-  background-color: #d2bba7;
   padding: 1.25rem;
   border-radius: 1rem;
 }
 
-.picker-tool {
-  border-radius: 100px;
-  width: 2rem;
-  height: 2rem;
+.previous-color-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.previous-color {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 1rem;
+}
+
+input[type="color"] {
+  -webkit-appearance: none;
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 50px;
 }
 
 .range-slider {

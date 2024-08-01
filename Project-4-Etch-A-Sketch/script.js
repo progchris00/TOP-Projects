@@ -5,6 +5,9 @@ const sketchingArea = document.querySelector(".sketching-area");
 const gridSizeSlider = document.querySelector(".grid-size-slider");
 const gridCurrentSize = document.querySelector(".grid-current-size");
 const eraserTool = document.querySelector(".erasing-tool");
+const previousColorContainer = document.querySelector(
+  ".previous-color-container"
+);
 
 let columnCount = 16;
 let rowCount = 16;
@@ -58,6 +61,7 @@ const attachEvent = () => {
         currentColor = picker.value;
         isDrawing = true;
         pixel.style.background = currentColor;
+        addPreviousColor();
       }
     });
 
@@ -97,5 +101,13 @@ eraserTool.addEventListener("click", () => {
   }
   eraserTool.classList.toggle("active");
 });
+
+const addPreviousColor = () => {
+  const color = document.createElement("div");
+  color.classList.add("previous-color");
+  color.style.background = currentColor;
+
+  previousColorContainer.appendChild(color);
+};
 
 loadGrid();
