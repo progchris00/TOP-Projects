@@ -17,7 +17,10 @@ let isDrawing = false;
 let mouseDown = false;
 let isErasing = false;
 let eraserMode = false;
+let prevColorCount = 0;
 let currentColor;
+
+let documentColors = [];
 
 const loadGrid = () => {
   for (let pixelCount = 0; pixelCount < gridSize; pixelCount++) {
@@ -61,7 +64,7 @@ const attachEvent = () => {
         currentColor = picker.value;
         isDrawing = true;
         pixel.style.background = currentColor;
-        addPreviousColor();
+        addDocumentColor();
       }
     });
 
@@ -102,12 +105,21 @@ eraserTool.addEventListener("click", () => {
   eraserTool.classList.toggle("active");
 });
 
-const addPreviousColor = () => {
-  const color = document.createElement("div");
-  color.classList.add("previous-color");
-  color.style.background = currentColor;
-
-  previousColorContainer.appendChild(color);
+const addDocumentColor = () => {
+  if (!documentColors.includes(currentColor)) {
+    documentColors.push(currentColor);
+    const color = document.createElement("div");
+    color.setAttribute("class", "previous-color");
+    color.setAttribute("id", prevColorCount);
+    color.style.background = currentColor;
+    previousColorContainer.appendChild(color);
+    color.addEventListener("click", selectColor);
+    prevColorCount++;
+  }
 };
+
+function selectColor(color) {
+  picker.value = documentColors[color.target.id];
+}
 
 loadGrid();
