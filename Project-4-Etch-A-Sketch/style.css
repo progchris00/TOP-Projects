@@ -2,7 +2,7 @@
   --clr-primary: #f9fafc;
   --clr-white: #fff;
   --clr-border: #e5e7eb;
-  --clr-accent: #10756e;
+  --clr-accent: #0f766e;
 
   --clr-fn-header: #111827;
   --clr-fn-pararaph: #4b5563;
@@ -80,7 +80,19 @@ body {
   border-bottom: 1.5px solid var(--clr-border);
   color: var(--clr-fn-header);
   text-align: center;
-  font-size: 1rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.sketch-container {
+  padding: 0 2rem;
+}
+
+.logo {
+  width: 2.5rem;
 }
 
 .sketching-area {
@@ -97,11 +109,19 @@ body {
   overflow: hidden;
 }
 
+.options {
+  width: 100%;
+  max-width: 32rem;
+  margin: 0 auto;
+}
+
 .drawing-tools {
   bottom: 0;
+  right: 0;
   position: absolute;
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
   padding: 1.25rem;
 
@@ -160,4 +180,25 @@ input[type="color"]::-webkit-color-swatch {
 
 .active {
   background-color: rgb(101, 99, 99);
+}
+
+.tools button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.erasing-tool {
+  background-color: #e5e7eb;
+  color: #374151;
+  border: none;
+}
+
+.clearing-tool {
+  color: var(--clr-white);
+  background-color: var(--clr-accent);
 }
