@@ -8,28 +8,30 @@
   </head>
   <body>
     <main class="sketch-container">
-      <div class="photo-reference"></div>
+      <header class="header">
+        <h1>Etch a Sketch</h1>
+      </header>
       <div class="sketching-area"></div>
+      <div class="range-slider">
+        <p class="grid-current-size">Grid count: 16 x 16</p>
+        <input
+          type="range"
+          class="grid-size-slider"
+          min="1"
+          max="50"
+          value="16"
+        />
+        <div class="values">
+          <p class="min-value">1</p>
+          <p class="max-value">50</p>
+        </div>
+      </div>
+      <div class="previous-color-container"><p>Document colors:</p></div>
       <div class="drawing-tools">
-        <div class="previous-color-container"><p>Document colors:</p></div>
         <div class="tools">
           <input type="color" class="picker-tool" id="picker-tool" />
           <button class="erasing-tool">eraser</button>
           <button class="clearing-tool">clear entire grid</button>
-        </div>
-        <div class="range-slider">
-          <p class="grid-current-size">Grid count: 16 x 16</p>
-          <input
-            type="range"
-            class="grid-size-slider"
-            min="1"
-            max="50"
-            value="16"
-          />
-          <div class="values">
-            <p class="min-value">1</p>
-            <p class="max-value">50</p>
-          </div>
         </div>
       </div>
     </main>

@@ -69,26 +69,32 @@ h6 {
 }
 
 body {
-  background-repeat: no-repeat;
-  background-color: #141611;
+  background-color: var(--clr-primary);
+  font-weight: var(--fw-regular);
+  color: var(--clr-fn-pararaph);
+  font-size: 1rem;
+}
+
+.header {
+  background-color: var(--clr-white);
+  border-bottom: 1.5px solid var(--clr-border);
+  color: var(--clr-fn-header);
+  text-align: center;
+  font-size: 1rem;
 }
 
 .sketching-area {
-  margin: 3rem auto;
-  width: 300px;
-  height: 300px;
+  width: 18.75rem;
+  height: 18.75rem;
+  margin: 3rem auto 2rem;
+
+  background-color: var(--clr-white);
+  border: 2px solid var(--clr-border);
+  border-radius: 0.5rem;
 
   display: flex;
   flex-wrap: wrap;
-  padding: 10px;
-  border-radius: 1rem;
-  background-color: #1e2019;
-}
-
-.pixel {
-  border: 1px solid #1e2019;
-  z-index: 1;
-  background-color: var(--cream);
+  overflow: hidden;
 }
 
 .drawing-tools {
@@ -99,8 +105,8 @@ body {
   width: 100%;
   padding: 1.25rem;
 
-  color: var(--cream);
-  background-color: #1e2019;
+  background-color: var(--clr-white);
+  border: 1.5px solid var(--clr-border);
   gap: 0.5rem;
 }
 
@@ -144,13 +150,6 @@ input[type="color"]::-webkit-color-swatch {
 .values {
   display: flex;
   justify-content: space-between;
-}
-
-.reference {
-  position: absolute;
-  width: 16rem;
-  height: 16rem;
-  opacity: 0.7;
 }
 
 .tools {
