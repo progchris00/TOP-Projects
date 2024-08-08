@@ -87,12 +87,17 @@ body {
   gap: 1rem;
 }
 
+.logo {
+  width: 2.5rem;
+}
+
 .sketch-container {
   padding: 0 2rem;
 }
 
-.logo {
-  width: 2.5rem;
+.sketch-and-option-wrapper {
+  display: flex;
+  flex-direction: column;
 }
 
 .sketching-area {
@@ -201,4 +206,54 @@ input[type="color"]::-webkit-color-swatch {
 .clearing-tool {
   color: var(--clr-white);
   background-color: var(--clr-accent);
+}
+
+@media (min-width: 768px) {
+  .sketching-area {
+    height: 25rem;
+    width: 25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sketch-container {
+    margin-top: 3rem;
+    justify-content: center;
+    display: flex;
+  }
+
+  .sketch-and-option-wrapper {
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
+
+  .sketching-area {
+    margin: 0;
+    min-height: 31.25rem;
+    min-width: 31.25rem;
+  }
+
+  .options {
+    margin: 0;
+    width: 300px;
+    padding: 1.25rem;
+  }
+
+  .drawing-tools {
+    position: static;
+    width: 300px;
+    background-color: var(--clr-primary);
+    border: none;
+    align-items: flex-start;
+  }
+
+  .tools {
+    flex-direction: column;
+  }
+
+  input[type="color"] {
+    background-color: var(--clr-primary);
+    height: 5rem;
+    width: 5rem;
+  }
 }
