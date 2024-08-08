@@ -163,7 +163,7 @@ input[type="color"] {
   height: 2rem;
   border: none;
   padding: 0;
-  background-color: #131718;
+  background-color: var(--clr-primary);
 }
 
 input[type="color"]::-webkit-color-swatch-wrapper {
