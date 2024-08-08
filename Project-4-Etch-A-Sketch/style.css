@@ -10,6 +10,8 @@
   --fw-regular: 500;
   --fw-bold: 600;
   --fw-black: 700;
+
+  --ff-inter: "Inter", sans-serif;
 }
 
 /*
@@ -71,6 +73,7 @@ h6 {
 body {
   background-color: var(--clr-primary);
   font-weight: var(--fw-regular);
+  font-family: var(--ff-inter);
   color: var(--clr-fn-pararaph);
   font-size: 1rem;
 }
@@ -80,15 +83,20 @@ body {
   border-bottom: 1.5px solid var(--clr-border);
   color: var(--clr-fn-header);
   text-align: center;
-  padding: 1rem;
+  padding: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.5rem;
+}
+
+.header h1 {
+  font-size: 1.875rem;
+  font-weight: var(--fw-bold);
 }
 
 .logo {
-  width: 2.5rem;
+  height: 3rem;
 }
 
 .sketch-container {
@@ -103,7 +111,7 @@ body {
 .sketching-area {
   width: 18.75rem;
   height: 18.75rem;
-  margin: 3rem auto 2rem;
+  margin: 2.5rem auto 2rem;
 
   background-color: var(--clr-white);
   border: 2px solid var(--clr-border);
