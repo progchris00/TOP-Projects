@@ -104,6 +104,7 @@ body {
 
 .sketch-container {
   padding: 0 1rem;
+  margin-bottom: 3rem;
 }
 
 .sketch-and-option-wrapper {
@@ -253,7 +254,7 @@ input[type="color"]::-webkit-color-swatch {
   .options {
     margin: 0;
     width: 300px;
-    padding: 1rem 1.5rem;
+    padding-right: 3rem;
   }
 
   .sketch-container {
