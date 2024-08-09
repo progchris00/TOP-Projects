@@ -203,10 +203,6 @@ input[type="color"]::-webkit-color-swatch {
   width: 100%;
 }
 
-.active {
-  background-color: var(--clr-border-darker);
-}
-
 .tools button {
   display: inline-flex;
   align-items: center;
@@ -236,6 +232,10 @@ input[type="color"]::-webkit-color-swatch {
 
 .clearing-tool:hover {
   background-color: var(--clr-accent-darker);
+}
+
+.active {
+  background-color: var(--clr-border-darker);
 }
 
 @media (min-width: 768px) {
