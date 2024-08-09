@@ -40,7 +40,7 @@ gridSizeSlider.addEventListener("mousedown", () => {
 
   gridSizeSlider.addEventListener("mousemove", () => {
     if (mouseDown) {
-      gridCurrentSize.textContent = `Grid count: ${columnCount} x ${rowCount}`;
+      gridCurrentSize.textContent = `Grid Size: ${columnCount} x ${rowCount}`;
       columnCount = gridSizeSlider.value;
       rowCount = gridSizeSlider.value;
       gridSize = columnCount * rowCount;
