@@ -240,6 +240,7 @@ input[type="color"]::-webkit-color-swatch {
 
 @media (min-width: 768px) {
   .sketching-area {
+    margin: 0;
     height: 25rem;
     width: 25rem;
   }
@@ -254,17 +255,19 @@ input[type="color"]::-webkit-color-swatch {
     width: 300px;
     padding: 1rem 1.5rem;
   }
+
+  .sketch-container {
+    margin-top: 3rem;
+  }
 }
 
 @media (min-width: 1024px) {
   .sketch-container {
-    margin-top: 3rem;
     justify-content: center;
     display: flex;
   }
 
   .sketching-area {
-    margin: 0;
     min-height: 31.25rem;
     min-width: 31.25rem;
   }
