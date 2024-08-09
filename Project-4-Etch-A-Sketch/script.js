@@ -68,6 +68,11 @@ const attachEvent = () => {
       }
     });
 
+    pixel.addEventListener("touchmove", () => {
+      pixel.style.background = currentColor;
+      addDocumentColor();
+    });
+
     pixel.addEventListener("mouseover", () => {
       if (isDrawing) {
         pixel.style.background = currentColor;
