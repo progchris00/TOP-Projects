@@ -149,6 +149,7 @@ body {
 .previous-color-container {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.5rem;
   border-bottom: 1.5px solid var(--clr-border);
   margin-bottom: 0.5rem;
@@ -203,7 +204,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .active {
-  background-color: rgb(101, 99, 99);
+  background-color: var(--clr-border-darker);
 }
 
 .tools button {
