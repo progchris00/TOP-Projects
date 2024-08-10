@@ -12,6 +12,7 @@ const previousColorContainer = document.querySelector(
 let columnCount = 16;
 let rowCount = 16;
 let gridSize = columnCount * rowCount;
+
 let allPixels;
 let isDrawing = false;
 let mouseDown = false;
@@ -25,6 +26,7 @@ let currentColor;
 let documentColors = [];
 
 const loadGrid = () => {
+  gridSizeSlider.value = columnCount;
   for (let pixelCount = 0; pixelCount < gridSize; pixelCount++) {
     const pixel = document.createElement("div");
     pixel.classList.add("pixel", pixelCount);
