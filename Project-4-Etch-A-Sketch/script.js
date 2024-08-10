@@ -16,12 +16,7 @@ let rowCount = 16;
 let gridSize = columnCount * rowCount;
 
 let allPixels;
-let isDrawing = false;
-let mouseDown = false;
-let isErasing = false;
-let eraserMode = false;
-let rainbowMode = false;
-let isRainbowMode = false;
+let isMouseDown = false;
 let prevColorCount = 0;
 let currentColor;
 
@@ -31,12 +26,12 @@ let modes = [
   {
     id: "color",
     isActive: true,
-    background: null,
+    background: getPickerValue(),
   },
   {
     id: "rainbow",
     isActive: false,
-    background: null,
+    background: getRGBValue(),
   },
   {
     id: "eraser",
@@ -53,6 +48,7 @@ tools.forEach((tool) => {
     });
 
     applyActive();
+    attachEvent();
   });
 });
 
@@ -76,6 +72,26 @@ const loadGrid = () => {
   attachEvent();
 };
 
+const attachEvent = () => {
+  const activeMode = modes.find((mode) => mode.isActive === true);
+  allPixels.forEach((pixel) => {
+    pixel.addEventListener("mousedown", () => {
+      pixel.style.background = activeMode.background;
+      isMouseDown = true;
+    });
+
+    pixel.addEventListener("mousemove", () => {
+      if (isMouseDown) {
+        pixel.style.background = activeMode.background;
+      }
+
+      pixel.addEventListener("mouseup", () => {
+        isMouseDown = false;
+      });
+    });
+  });
+};
+
 gridSizeSlider.addEventListener("mousedown", () => {
   mouseDown = true;
 
@@ -93,48 +109,6 @@ gridSizeSlider.addEventListener("mousedown", () => {
       mouseDown = false;
     });
   });
-});
-
-const attachEvent = () => {
-  allPixels.forEach((pixel) => {
-    pixel.addEventListener("mousedown", () => {
-      if (rainbowMode) {
-        pixel.style.background = getRGBValue();
-        isRainbowMode = true;
-      } else if (eraserMode) {
-        pixel.style.background = "white";
-        isErasing = true;
-      } else {
-        isDrawing = true;
-        pixel.style.background = getPickerValue();
-        addDocumentColor();
-      }
-    });
-
-    pixel.addEventListener("mouseover", () => {
-      if (isDrawing) {
-        pixel.style.background = getPickerValue();
-      } else if (isErasing) {
-        pixel.style.background = "white";
-      } else if (isRainbowMode) {
-        pixel.style.background = `rgb(${red}, ${green}, ${blue})`;
-      }
-    });
-
-    pixel.addEventListener("mouseup", () => {
-      isDrawing = false;
-      isErasing = false;
-      isRainbowMode = false;
-    });
-  });
-};
-
-eraserTool.addEventListener("click", () => {
-  if (eraserMode == false) {
-    eraserMode = true;
-  } else {
-    eraserMode = false;
-  }
 });
 
 clearButton.addEventListener("click", () => {
