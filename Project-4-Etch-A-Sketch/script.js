@@ -45,29 +45,16 @@ let modes = [
   },
 ];
 
-// tools.forEach((tool) => {
-//   tool.addEventListener("click", () => {
-//     modes.forEach((mode) => {
-//       if (mode.id == tool.id) {
-//         mode.isActive = true;
-//       } else {
-//         mode.isActive = false;
-//       }
-//     });
-//   });
-// });
-
 tools.forEach((tool) => {
   tool.addEventListener("click", () => {
     modes.forEach((mode) => {
-      mode.isActive = false;
+      if (mode.id === tool.id) {
+        mode.isActive = true;
+      } else {
+        mode.isActive = false;
+      }
     });
 
-    let activeTool = document.getElementById(tool.id);
-    activeTool.classList.add("active");
-
-    let activeMode = modes?.find((mode) => mode.id === tool.id);
-    activeMode.isActive = true;
     applyActive();
   });
 });
