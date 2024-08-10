@@ -5,6 +5,8 @@ const sketchingArea = document.querySelector(".sketching-area");
 const gridSizeSlider = document.querySelector(".grid-size-slider");
 const gridCurrentSize = document.querySelector(".grid-current-size");
 const eraserTool = document.querySelector(".erasing-tool");
+const toolsContainer = document.querySelector(".tools");
+const tools = toolsContainer.querySelectorAll("button");
 const previousColorContainer = document.querySelector(
   ".previous-color-container"
 );
@@ -25,6 +27,36 @@ let currentColor;
 
 let documentColors = [];
 
+let modes = [
+  {
+    id: "color",
+    isActive: true,
+    background: getPickerValue(),
+  },
+  {
+    id: "rainbow",
+    isActive: false,
+    background: getRandomValue(),
+  },
+  {
+    id: "eraser",
+    isActive: false,
+    background: "white",
+  },
+];
+
+tools.forEach((tool) => {
+  tool.addEventListener("click", () => {
+    modes.forEach((mode) => {
+      if (mode.id == tool.id) {
+        mode.isActive = true;
+      } else {
+        mode.isActive = false;
+      }
+    });
+  });
+});
+
 const loadGrid = () => {
   gridSizeSlider.value = columnCount;
   for (let pixelCount = 0; pixelCount < gridSize; pixelCount++) {
@@ -35,7 +67,7 @@ const loadGrid = () => {
   }
 
   allPixels = document.querySelectorAll(".pixel");
-  attachEvent();
+  // attachEvent();
 };
 
 gridSizeSlider.addEventListener("mousedown", () => {
@@ -57,45 +89,45 @@ gridSizeSlider.addEventListener("mousedown", () => {
   });
 });
 
-const attachEvent = () => {
-  allPixels.forEach((pixel) => {
-    const max = 255;
-    let red = Math.floor(Math.random() * max);
-    let green = Math.floor(Math.random() * max);
-    let blue = Math.floor(Math.random() * max);
+// const attachEvent = () => {
+//   allPixels.forEach((pixel) => {
+//     const max = 255;
+//     let red = Math.floor(Math.random() * max);
+//     let green = Math.floor(Math.random() * max);
+//     let blue = Math.floor(Math.random() * max);
 
-    pixel.addEventListener("mousedown", () => {
-      if (rainbowMode) {
-        pixel.style.background = `rgb(${red}, ${green}, ${blue})`;
-        isRainbowMode = true;
-      } else if (eraserMode) {
-        pixel.style.background = "white";
-        isErasing = true;
-      } else {
-        currentColor = picker.value;
-        isDrawing = true;
-        pixel.style.background = currentColor;
-        addDocumentColor();
-      }
-    });
+//     pixel.addEventListener("mousedown", () => {
+//       if (rainbowMode) {
+//         pixel.style.background = `rgb(${red}, ${green}, ${blue})`;
+//         isRainbowMode = true;
+//       } else if (eraserMode) {
+//         pixel.style.background = "white";
+//         isErasing = true;
+//       } else {
+//         currentColor = picker.value;
+//         isDrawing = true;
+//         pixel.style.background = currentColor;
+//         addDocumentColor();
+//       }
+//     });
 
-    pixel.addEventListener("mouseover", () => {
-      if (isDrawing) {
-        pixel.style.background = currentColor;
-      } else if (isErasing) {
-        pixel.style.background = "white";
-      } else if (isRainbowMode) {
-        pixel.style.background = `rgb(${red}, ${green}, ${blue})`;
-      }
-    });
+//     pixel.addEventListener("mouseover", () => {
+//       if (isDrawing) {
+//         pixel.style.background = currentColor;
+//       } else if (isErasing) {
+//         pixel.style.background = "white";
+//       } else if (isRainbowMode) {
+//         pixel.style.background = `rgb(${red}, ${green}, ${blue})`;
+//       }
+//     });
 
-    pixel.addEventListener("mouseup", () => {
-      isDrawing = false;
-      isErasing = false;
-      isRainbowMode = false;
-    });
-  });
-};
+//     pixel.addEventListener("mouseup", () => {
+//       isDrawing = false;
+//       isErasing = false;
+//       isRainbowMode = false;
+//     });
+//   });
+// };
 
 clearButton.addEventListener("click", () => {
   allPixels.forEach((pixel) => {
@@ -127,5 +159,9 @@ const addDocumentColor = () => {
 function selectColor(color) {
   picker.value = documentColors[color.target.id];
 }
+
+function getPickerValue() {}
+
+function getRandomValue() {}
 
 loadGrid();
