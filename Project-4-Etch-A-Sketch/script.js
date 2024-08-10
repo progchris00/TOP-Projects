@@ -19,6 +19,7 @@ let allPixels;
 let isMouseDown = false;
 let prevColorCount = 0;
 let currentColor;
+let background;
 
 let documentColors = [];
 
@@ -26,12 +27,12 @@ let modes = [
   {
     id: "color",
     isActive: true,
-    background: getPickerValue(),
+    background: null,
   },
   {
     id: "rainbow",
     isActive: false,
-    background: getRGBValue(),
+    background: null,
   },
   {
     id: "eraser",
@@ -76,13 +77,13 @@ const attachEvent = () => {
   const activeMode = modes.find((mode) => mode.isActive === true);
   allPixels.forEach((pixel) => {
     pixel.addEventListener("mousedown", () => {
-      pixel.style.background = activeMode.background;
+      pixel.style.background = getColorValue(activeMode.id);
       isMouseDown = true;
     });
 
     pixel.addEventListener("mousemove", () => {
       if (isMouseDown) {
-        pixel.style.background = activeMode.background;
+        pixel.style.background = getColorValue(activeMode.id);
       }
 
       pixel.addEventListener("mouseup", () => {
@@ -144,6 +145,20 @@ function getRGBValue() {
   let green = Math.floor(Math.random() * max);
   let blue = Math.floor(Math.random() * max);
   return `rgb(${red}, ${green}, ${blue})`;
+}
+
+function getColorValue(id) {
+  if (id === "color") {
+    return picker.value;
+  } else if (id === "rainbow") {
+    const max = 255;
+    let red = Math.floor(Math.random() * max);
+    let green = Math.floor(Math.random() * max);
+    let blue = Math.floor(Math.random() * max);
+    return `rgb(${red}, ${green}, ${blue})`;
+  } else {
+    return "white";
+  }
 }
 
 loadGrid();
