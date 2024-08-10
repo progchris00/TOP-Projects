@@ -74,12 +74,11 @@ tools.forEach((tool) => {
 
 function applyActive() {
   modes.forEach((mode) => {
+    let currentTool = document.getElementById(mode.id);
     if (mode.isActive) {
-      activeTool = document.getElementById(mode.id);
-      activeTool.classList.add("active");
+      currentTool.classList.add("active");
     } else {
-      inactiveTool = document.getElementById(mode.id);
-      inactiveTool.classList.remove("active");
+      currentTool.classList.remove("active");
     }
   });
 }
