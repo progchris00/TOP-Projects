@@ -17,6 +17,8 @@ let isDrawing = false;
 let mouseDown = false;
 let isErasing = false;
 let eraserMode = false;
+let rainbowMode = true;
+let isRainbowMode = false;
 let prevColorCount = 0;
 let currentColor;
 
@@ -26,7 +28,6 @@ const loadGrid = () => {
   for (let pixelCount = 0; pixelCount < gridSize; pixelCount++) {
     const pixel = document.createElement("div");
     pixel.classList.add("pixel", pixelCount);
-    pixel.draggable = false;
     pixel.style.width = `${100 / columnCount}%`;
     sketchingArea.appendChild(pixel);
   }
@@ -56,8 +57,16 @@ gridSizeSlider.addEventListener("mousedown", () => {
 
 const attachEvent = () => {
   allPixels.forEach((pixel) => {
+    const max = 255;
+    let red = Math.floor(Math.random() * max);
+    let green = Math.floor(Math.random() * max);
+    let blue = Math.floor(Math.random() * max);
+
     pixel.addEventListener("mousedown", () => {
-      if (eraserMode) {
+      if (rainbowMode) {
+        pixel.style.background = `rgb(${red}, ${green}, ${blue})`;
+        isRainbowMode = true;
+      } else if (eraserMode) {
         pixel.style.background = "white";
         isErasing = true;
       } else {
@@ -68,29 +77,20 @@ const attachEvent = () => {
       }
     });
 
-    pixel.addEventListener("touchmove", () => {
-      pixel.style.background = currentColor;
-      addDocumentColor();
-    });
-
     pixel.addEventListener("mouseover", () => {
       if (isDrawing) {
         pixel.style.background = currentColor;
-      }
-
-      if (isErasing) {
+      } else if (isErasing) {
         pixel.style.background = "white";
+      } else if (isRainbowMode) {
+        pixel.style.background = `rgb(${red}, ${green}, ${blue})`;
       }
     });
 
     pixel.addEventListener("mouseup", () => {
       isDrawing = false;
       isErasing = false;
-    });
-
-    pixel.addEventListener("drag", () => {
-      isDrawing = false;
-      isErasing = false;
+      isRainbowMode = false;
     });
   });
 };
@@ -107,7 +107,6 @@ eraserTool.addEventListener("click", () => {
   } else {
     eraserMode = false;
   }
-  eraserTool.classList.toggle("active");
 });
 
 const addDocumentColor = () => {
