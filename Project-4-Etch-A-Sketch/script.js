@@ -20,7 +20,7 @@ let isDrawing = false;
 let mouseDown = false;
 let isErasing = false;
 let eraserMode = false;
-let rainbowMode = true;
+let rainbowMode = false;
 let isRainbowMode = false;
 let prevColorCount = 0;
 let currentColor;
@@ -31,12 +31,12 @@ let modes = [
   {
     id: "color",
     isActive: true,
-    background: getPickerValue(),
+    background: null,
   },
   {
     id: "rainbow",
     isActive: false,
-    background: getRandomValue(),
+    background: null,
   },
   {
     id: "eraser",
@@ -73,7 +73,7 @@ const loadGrid = () => {
   }
 
   allPixels = document.querySelectorAll(".pixel");
-  // attachEvent();
+  attachEvent();
 };
 
 gridSizeSlider.addEventListener("mousedown", () => {
@@ -95,51 +95,39 @@ gridSizeSlider.addEventListener("mousedown", () => {
   });
 });
 
-// const attachEvent = () => {
-//   allPixels.forEach((pixel) => {
-//     const max = 255;
-//     let red = Math.floor(Math.random() * max);
-//     let green = Math.floor(Math.random() * max);
-//     let blue = Math.floor(Math.random() * max);
-
-//     pixel.addEventListener("mousedown", () => {
-//       if (rainbowMode) {
-//         pixel.style.background = `rgb(${red}, ${green}, ${blue})`;
-//         isRainbowMode = true;
-//       } else if (eraserMode) {
-//         pixel.style.background = "white";
-//         isErasing = true;
-//       } else {
-//         currentColor = picker.value;
-//         isDrawing = true;
-//         pixel.style.background = currentColor;
-//         addDocumentColor();
-//       }
-//     });
-
-//     pixel.addEventListener("mouseover", () => {
-//       if (isDrawing) {
-//         pixel.style.background = currentColor;
-//       } else if (isErasing) {
-//         pixel.style.background = "white";
-//       } else if (isRainbowMode) {
-//         pixel.style.background = `rgb(${red}, ${green}, ${blue})`;
-//       }
-//     });
-
-//     pixel.addEventListener("mouseup", () => {
-//       isDrawing = false;
-//       isErasing = false;
-//       isRainbowMode = false;
-//     });
-//   });
-// };
-
-clearButton.addEventListener("click", () => {
+const attachEvent = () => {
   allPixels.forEach((pixel) => {
-    pixel.style.background = "white";
+    pixel.addEventListener("mousedown", () => {
+      if (rainbowMode) {
+        pixel.style.background = getRGBValue();
+        isRainbowMode = true;
+      } else if (eraserMode) {
+        pixel.style.background = "white";
+        isErasing = true;
+      } else {
+        isDrawing = true;
+        pixel.style.background = getPickerValue();
+        addDocumentColor();
+      }
+    });
+
+    pixel.addEventListener("mouseover", () => {
+      if (isDrawing) {
+        pixel.style.background = getPickerValue();
+      } else if (isErasing) {
+        pixel.style.background = "white";
+      } else if (isRainbowMode) {
+        pixel.style.background = `rgb(${red}, ${green}, ${blue})`;
+      }
+    });
+
+    pixel.addEventListener("mouseup", () => {
+      isDrawing = false;
+      isErasing = false;
+      isRainbowMode = false;
+    });
   });
-});
+};
 
 eraserTool.addEventListener("click", () => {
   if (eraserMode == false) {
@@ -147,6 +135,12 @@ eraserTool.addEventListener("click", () => {
   } else {
     eraserMode = false;
   }
+});
+
+clearButton.addEventListener("click", () => {
+  allPixels.forEach((pixel) => {
+    pixel.style.background = "white";
+  });
 });
 
 const addDocumentColor = () => {
@@ -166,8 +160,16 @@ function selectColor(color) {
   picker.value = documentColors[color.target.id];
 }
 
-function getPickerValue() {}
+function getPickerValue() {
+  return picker.value;
+}
 
-function getRandomValue() {}
+function getRGBValue() {
+  const max = 255;
+  let red = Math.floor(Math.random() * max);
+  let green = Math.floor(Math.random() * max);
+  let blue = Math.floor(Math.random() * max);
+  return `rgb(${red}, ${green}, ${blue})`;
+}
 
 loadGrid();
