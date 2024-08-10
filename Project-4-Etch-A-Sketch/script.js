@@ -73,13 +73,9 @@ tools.forEach((tool) => {
 });
 
 function applyActive() {
-  modes.forEach((mode) => {
-    let currentTool = document.getElementById(mode.id);
-    if (mode.isActive) {
-      currentTool.classList.add("active");
-    } else {
-      currentTool.classList.remove("active");
-    }
+  modes.forEach(({ id, isActive }) => {
+    const currentTool = document.getElementById(id);
+    currentTool.classList.toggle("active", isActive);
   });
 }
 
