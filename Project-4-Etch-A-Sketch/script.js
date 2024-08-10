@@ -135,18 +135,6 @@ function selectColor(color) {
   picker.value = documentColors[color.target.id];
 }
 
-function getPickerValue() {
-  return picker.value;
-}
-
-function getRGBValue() {
-  const max = 255;
-  let red = Math.floor(Math.random() * max);
-  let green = Math.floor(Math.random() * max);
-  let blue = Math.floor(Math.random() * max);
-  return `rgb(${red}, ${green}, ${blue})`;
-}
-
 function getColorValue(id) {
   if (id === "color") {
     return picker.value;
