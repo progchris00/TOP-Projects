@@ -199,6 +199,7 @@ input[type="color"]::-webkit-color-swatch {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 1rem;
   font-size: 0.875rem;
   width: 100%;
@@ -214,29 +215,22 @@ input[type="color"]::-webkit-color-swatch {
   cursor: pointer;
   max-width: 100px;
   width: 100%;
-}
-
-.erasing-tool {
-  background-color: #e5e7eb;
   color: #374151;
-  border: none;
+  background-color: #e5e7eb;
 }
 
-.erasing-tool:hover {
+.tools button:hover {
   background-color: var(--clr-border-darker);
 }
 
-.clearing-tool {
-  color: var(--clr-white);
+.tools .active {
   background-color: var(--clr-accent);
+  color: var(--clr-white);
 }
 
-.clearing-tool:hover {
-  background-color: var(--clr-accent-darker);
-}
-
-.active {
-  background-color: var(--clr-border-darker);
+.tools .active:hover {
+  background-color: var(--clr-accent);
+  color: var(--clr-white);
 }
 
 @media (min-width: 768px) {
