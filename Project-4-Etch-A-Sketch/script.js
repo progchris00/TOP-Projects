@@ -45,17 +45,44 @@ let modes = [
   },
 ];
 
+// tools.forEach((tool) => {
+//   tool.addEventListener("click", () => {
+//     modes.forEach((mode) => {
+//       if (mode.id == tool.id) {
+//         mode.isActive = true;
+//       } else {
+//         mode.isActive = false;
+//       }
+//     });
+//   });
+// });
+
 tools.forEach((tool) => {
   tool.addEventListener("click", () => {
     modes.forEach((mode) => {
-      if (mode.id == tool.id) {
-        mode.isActive = true;
-      } else {
-        mode.isActive = false;
-      }
+      mode.isActive = false;
     });
+
+    let activeTool = document.getElementById(tool.id);
+    activeTool.classList.add("active");
+
+    let activeMode = modes?.find((mode) => mode.id === tool.id);
+    activeMode.isActive = true;
+    applyActive();
   });
 });
+
+function applyActive() {
+  modes.forEach((mode) => {
+    if (mode.isActive) {
+      activeTool = document.getElementById(mode.id);
+      activeTool.classList.add("active");
+    } else {
+      inactiveTool = document.getElementById(mode.id);
+      inactiveTool.classList.remove("active");
+    }
+  });
+}
 
 const loadGrid = () => {
   gridSizeSlider.value = columnCount;
