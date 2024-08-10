@@ -48,11 +48,8 @@ let modes = [
 tools.forEach((tool) => {
   tool.addEventListener("click", () => {
     modes.forEach((mode) => {
-      if (mode.id === tool.id) {
-        mode.isActive = true;
-      } else {
-        mode.isActive = false;
-      }
+      let isModeActive = mode.id === tool.id ? true : false;
+      mode.isActive = isModeActive;
     });
 
     applyActive();
