@@ -116,6 +116,9 @@ clearButton.addEventListener("click", () => {
   allPixels.forEach((pixel) => {
     pixel.style.background = "white";
   });
+
+  modes[0].isActive = true;
+  applyActive();
 });
 
 const addDocumentColor = () => {
