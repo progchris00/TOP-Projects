@@ -74,8 +74,12 @@ const attachEvent = () => {
   const activeMode = modes.find((mode) => mode.isActive === true);
   allPixels.forEach((pixel) => {
     pixel.addEventListener("mousedown", () => {
-      pixel.style.background = getColorValue(activeMode.id);
+      currentColor = getColorValue(activeMode.id);
+      pixel.style.background = currentColor;
       isMouseDown = true;
+      if (activeMode.id == "color") {
+        addDocumentColor();
+      }
     });
 
     pixel.addEventListener("mousemove", () => {
