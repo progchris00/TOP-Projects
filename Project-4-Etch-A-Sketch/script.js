@@ -4,7 +4,6 @@ const clearButton = document.querySelector(".clearing-tool");
 const sketchingArea = document.querySelector(".sketching-area");
 const gridSizeSlider = document.querySelector(".grid-size-slider");
 const gridCurrentSize = document.querySelector(".grid-current-size");
-const eraserTool = document.querySelector(".erasing-tool");
 const toolsContainer = document.querySelector(".tools");
 const tools = toolsContainer.querySelectorAll("button");
 const previousColorContainer = document.querySelector(
@@ -116,9 +115,6 @@ clearButton.addEventListener("click", () => {
   allPixels.forEach((pixel) => {
     pixel.style.background = "white";
   });
-
-  modes[0].isActive = true;
-  applyActive();
 });
 
 const addDocumentColor = () => {
