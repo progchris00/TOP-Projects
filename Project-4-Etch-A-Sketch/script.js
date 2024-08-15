@@ -82,9 +82,10 @@ const attachEvent = () => {
       if (isMouseDown) {
         pixel.style.background = getColorValue(activeMode.id);
       }
-      pixel.addEventListener("mouseup", () => {
-        isMouseDown = false;
-      });
+    });
+
+    pixel.addEventListener("mouseup", () => {
+      isMouseDown = false;
     });
   });
 };
