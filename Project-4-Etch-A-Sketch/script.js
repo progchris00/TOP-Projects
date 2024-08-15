@@ -18,7 +18,6 @@ let allPixels;
 let isMouseDown = false;
 let prevColorCount = 0;
 let currentColor;
-let background;
 
 let documentColors = [];
 
@@ -26,17 +25,14 @@ let modes = [
   {
     id: "color",
     isActive: true,
-    background: null,
   },
   {
     id: "rainbow",
     isActive: false,
-    background: null,
   },
   {
     id: "eraser",
     isActive: false,
-    background: "white",
   },
 ];
 
@@ -86,7 +82,6 @@ const attachEvent = () => {
       if (isMouseDown) {
         pixel.style.background = getColorValue(activeMode.id);
       }
-
       pixel.addEventListener("mouseup", () => {
         isMouseDown = false;
       });
