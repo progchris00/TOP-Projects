@@ -4,7 +4,6 @@ const clearButton = document.querySelector(".clearing-tool");
 const sketchingArea = document.querySelector(".sketching-area");
 const gridSizeSlider = document.querySelector(".grid-size-slider");
 const gridCurrentSize = document.querySelector(".grid-current-size");
-const eraserTool = document.querySelector(".erasing-tool");
 const toolsContainer = document.querySelector(".tools");
 const tools = toolsContainer.querySelectorAll("button");
 const previousColorContainer = document.querySelector(
@@ -19,7 +18,6 @@ let allPixels;
 let isMouseDown = false;
 let prevColorCount = 0;
 let currentColor;
-let background;
 
 let documentColors = [];
 
@@ -27,26 +25,25 @@ let modes = [
   {
     id: "color",
     isActive: true,
-    background: null,
   },
   {
     id: "rainbow",
     isActive: false,
-    background: null,
   },
   {
     id: "eraser",
     isActive: false,
-    background: "white",
   },
 ];
 
 tools.forEach((tool) => {
   tool.addEventListener("click", () => {
-    modes.forEach((mode) => {
-      let isModeActive = mode.id === tool.id ? true : false;
-      mode.isActive = isModeActive;
-    });
+    if (tool.id !== "clear") {
+      modes.forEach((mode) => {
+        let isModeActive = mode.id === tool.id ? true : false;
+        mode.isActive = isModeActive;
+      });
+    }
 
     applyActive();
     attachEvent();
@@ -77,18 +74,22 @@ const attachEvent = () => {
   const activeMode = modes.find((mode) => mode.isActive === true);
   allPixels.forEach((pixel) => {
     pixel.addEventListener("mousedown", () => {
-      pixel.style.background = getColorValue(activeMode.id);
+      currentColor = getColorValue(activeMode.id);
+      pixel.style.background = currentColor;
       isMouseDown = true;
+      if (activeMode.id == "color") {
+        addDocumentColor();
+      }
     });
 
     pixel.addEventListener("mousemove", () => {
       if (isMouseDown) {
         pixel.style.background = getColorValue(activeMode.id);
       }
+    });
 
-      pixel.addEventListener("mouseup", () => {
-        isMouseDown = false;
-      });
+    pixel.addEventListener("mouseup", () => {
+      isMouseDown = false;
     });
   });
 };
@@ -116,9 +117,6 @@ clearButton.addEventListener("click", () => {
   allPixels.forEach((pixel) => {
     pixel.style.background = "white";
   });
-
-  modes[0].isActive = true;
-  applyActive();
 });
 
 const addDocumentColor = () => {

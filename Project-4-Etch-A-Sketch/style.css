@@ -107,6 +107,10 @@ body {
   margin-bottom: 3rem;
 }
 
+.pixel {
+  user-select: none;
+}
+
 .sketch-and-option-wrapper {
   display: flex;
   flex-direction: column;
