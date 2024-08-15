@@ -42,10 +42,12 @@ let modes = [
 
 tools.forEach((tool) => {
   tool.addEventListener("click", () => {
-    modes.forEach((mode) => {
-      let isModeActive = mode.id === tool.id ? true : false;
-      mode.isActive = isModeActive;
-    });
+    if (!tool.id == "clear") {
+      modes.forEach((mode) => {
+        let isModeActive = mode.id === tool.id ? true : false;
+        mode.isActive = isModeActive;
+      });
+    }
 
     applyActive();
     attachEvent();
