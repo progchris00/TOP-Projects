@@ -1,11 +1,12 @@
 class Calculator {
   constructor() {
     this.inputField = document.querySelector(".input");
-    this.buttons = document.querySelectorAll("button");
+    this.buttonsContainer = document.querySelector(".buttons-numbers");
+    this.buttonsNumbers = this.buttonsContainer.querySelectorAll("button");
   }
 
   applyButtonListener() {
-    this.buttons.forEach((button) => {
+    this.buttonsNumbers.forEach((button) => {
       button.addEventListener("click", () => {
         if (this.inputField.textContent == 0) {
           this.inputField.textContent = button.textContent;
