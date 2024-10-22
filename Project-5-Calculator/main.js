@@ -3,6 +3,9 @@ class Calculator {
     this.inputField = document.querySelector(".input");
     this.buttonsContainer = document.querySelector(".buttons-numbers");
     this.buttonsNumbers = this.buttonsContainer.querySelectorAll("button");
+    this.firstNumber = 0;
+    this.secondNumber = 0;
+    this.operator = null;
   }
 
   applyButtonListener() {
@@ -21,6 +24,7 @@ class Calculator {
   subtract() {}
   multiply() {}
   divide() {}
+  operate() {}
 }
 
 const TOPCalculator = new Calculator();
