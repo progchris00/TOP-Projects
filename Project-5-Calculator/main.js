@@ -24,7 +24,22 @@ class Calculator {
   subtract() {}
   multiply() {}
   divide() {}
-  operate() {}
+  operate() {
+    switch (this.operator) {
+      case "+":
+        this.inputField.textContent = this.firstNumber + this.secondNumber;
+        break;
+      case "-":
+        this.inputField.textContent = this.firstNumber - this.secondNumber;
+        break;
+      case "/":
+        this.inputField.textContent = this.firstNumber / this.secondNumber;
+        break;
+      case "*":
+        this.inputField.textContent = this.firstNumber * this.secondNumber;
+        break;
+    }
+  }
 }
 
 const TOPCalculator = new Calculator();
