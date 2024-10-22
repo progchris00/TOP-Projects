@@ -16,6 +16,11 @@ class Calculator {
       });
     });
   }
+
+  add() {}
+  subtract() {}
+  multiply() {}
+  divide() {}
 }
 
 const TOPCalculator = new Calculator();
