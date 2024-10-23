@@ -2,20 +2,35 @@ class Calculator {
   constructor() {
     this.inputField = document.querySelector(".input");
     this.buttonsContainer = document.querySelector(".buttons-numbers");
-    this.buttonsNumbers = this.buttonsContainer.querySelectorAll("button");
+    this.inputs = document.querySelectorAll(".button-inputs button");
+    this.operations = "+/-x";
+    this.temporary = [];
     this.firstNumber = 0;
     this.secondNumber = 0;
     this.operator = null;
   }
 
   applyButtonListener() {
-    this.buttonsNumbers.forEach((button) => {
+    this.inputs.forEach((button) => {
       button.addEventListener("click", () => {
         if (this.inputField.textContent == 0) {
           this.inputField.textContent = button.textContent;
+          this.temporary.push(button.textContent);
+        } else if (this.operations.includes(button.textContent)) {
+          this.operator = button.textContent;
+          console.log(this.operator);
+          this.firstNumber = +this.temporary.join("");
+          console.log(this.firstNumber);
+          this.inputField.textContent = 0;
+          this.temporary = [];
+        } else if (button.textContent == "=") {
+          this.secondNumber = +this.temporary.join("");
+          this.operate();
         } else {
           this.inputField.textContent += button.textContent;
+          this.temporary.push(button.textContent);
         }
+        console.log(this.temporary);
       });
     });
   }
