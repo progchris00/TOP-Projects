@@ -3,7 +3,7 @@ class Calculator {
     this.inputField = document.querySelector(".input");
     this.inputs = document.querySelectorAll(".button-inputs button");
     this.operations = "+/-x";
-    this.temporary = [];
+    this.temporaryNumberStorage = [];
     this.firstNumber = null;
     this.secondNumber = null;
     this.operator = null;
@@ -14,20 +14,20 @@ class Calculator {
       button.addEventListener("click", () => {
         if (this.inputField.textContent == 0) {
           this.inputField.textContent = button.textContent;
-          this.temporary.push(button.textContent);
+          this.temporaryNumberStorage.push(button.textContent);
         } else if (this.operations.includes(button.textContent)) {
           this.operator = button.textContent;
           if (this.firstNumber == null) {
-            this.firstNumber = +this.temporary.join("");
+            this.firstNumber = +this.temporaryNumberStorage.join("");
           }
           this.inputField.textContent = 0;
-          this.temporary = [];
+          this.temporaryNumberStorage = [];
         } else if (button.textContent == "=") {
-          this.secondNumber = +this.temporary.join("");
+          this.secondNumber = +this.temporaryNumberStorage.join("");
           this.operate();
         } else {
           this.inputField.textContent += button.textContent;
-          this.temporary.push(button.textContent);
+          this.temporaryNumberStorage.push(button.textContent);
         }
       });
     });
