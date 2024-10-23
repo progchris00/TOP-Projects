@@ -5,8 +5,8 @@ class Calculator {
     this.inputs = document.querySelectorAll(".button-inputs button");
     this.operations = "+/-x";
     this.temporary = [];
-    this.firstNumber = 0;
-    this.secondNumber = 0;
+    this.firstNumber = null;
+    this.secondNumber = null;
     this.operator = null;
   }
 
@@ -19,7 +19,9 @@ class Calculator {
         } else if (this.operations.includes(button.textContent)) {
           this.operator = button.textContent;
           console.log(this.operator);
-          this.firstNumber = +this.temporary.join("");
+          if (this.firstNumber == null) {
+            this.firstNumber = +this.temporary.join("");
+          }
           console.log(this.firstNumber);
           this.inputField.textContent = 0;
           this.temporary = [];
@@ -63,6 +65,8 @@ class Calculator {
         this.inputField.textContent = this.multiply();
         break;
     }
+    this.firstNumber = +this.inputField.textContent;
+    this.secondNumber = 0;
   }
 }
 
