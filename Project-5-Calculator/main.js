@@ -1,8 +1,10 @@
 class Calculator {
+  static OPERATIONS = "+-/x";
+  static NUMERICS = "0123456789";
+
   constructor() {
     this.inputField = document.querySelector(".input");
     this.inputs = document.querySelectorAll(".button-inputs button");
-    this.operations = "+/-x";
     this.temporaryNumberStorage = [];
     this.firstNumber = null;
     this.secondNumber = null;
