@@ -35,23 +35,32 @@ class Calculator {
     });
   }
 
-  add() {}
-  subtract() {}
-  multiply() {}
-  divide() {}
+  add() {
+    return this.firstNumber + this.secondNumber;
+  }
+  subtract() {
+    return this.firstNumber - this.secondNumber;
+  }
+  multiply() {
+    return this.firstNumber * this.secondNumber;
+  }
+  divide() {
+    return this.firstNumber / this.secondNumber;
+  }
+
   operate() {
     switch (this.operator) {
       case "+":
-        this.inputField.textContent = this.firstNumber + this.secondNumber;
+        this.inputField.textContent = this.add();
         break;
       case "-":
-        this.inputField.textContent = this.firstNumber - this.secondNumber;
+        this.inputField.textContent = this.subtract();
         break;
       case "/":
-        this.inputField.textContent = this.firstNumber / this.secondNumber;
+        this.inputField.textContent = this.divide();
         break;
       case "*":
-        this.inputField.textContent = this.firstNumber * this.secondNumber;
+        this.inputField.textContent = this.multiply();
         break;
     }
   }
