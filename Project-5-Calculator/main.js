@@ -1,7 +1,6 @@
 class Calculator {
   constructor() {
     this.inputField = document.querySelector(".input");
-    this.buttonsContainer = document.querySelector(".buttons-numbers");
     this.inputs = document.querySelectorAll(".button-inputs button");
     this.operations = "+/-x";
     this.temporary = [];
