@@ -18,11 +18,9 @@ class Calculator {
           this.temporary.push(button.textContent);
         } else if (this.operations.includes(button.textContent)) {
           this.operator = button.textContent;
-          console.log(this.operator);
           if (this.firstNumber == null) {
             this.firstNumber = +this.temporary.join("");
           }
-          console.log(this.firstNumber);
           this.inputField.textContent = 0;
           this.temporary = [];
         } else if (button.textContent == "=") {
@@ -32,7 +30,6 @@ class Calculator {
           this.inputField.textContent += button.textContent;
           this.temporary.push(button.textContent);
         }
-        console.log(this.temporary);
       });
     });
   }
