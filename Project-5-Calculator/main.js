@@ -49,19 +49,6 @@ class Calculator {
     });
   }
 
-  add() {
-    this.result = this.firstNumber + this.secondNumber;
-  }
-  subtract() {
-    this.result = this.firstNumber - this.secondNumber;
-  }
-  multiply() {
-    this.result = this.firstNumber * this.secondNumber;
-  }
-  divide() {
-    this.result = this.firstNumber / this.secondNumber;
-  }
-
   operate() {
     switch (this.operator) {
       case "+":
@@ -81,6 +68,19 @@ class Calculator {
     this.firstNumber = +this.inputField.textContent;
     this.result = this.firstNumber;
     this.secondNumber = null;
+  }
+
+  add() {
+    this.result = this.firstNumber + this.secondNumber;
+  }
+  subtract() {
+    this.result = this.firstNumber - this.secondNumber;
+  }
+  multiply() {
+    this.result = this.firstNumber * this.secondNumber;
+  }
+  divide() {
+    this.result = this.firstNumber / this.secondNumber;
   }
 }
 
