@@ -71,7 +71,6 @@ class Calculator {
         break;
     }
     this.firstNumber = +this.inputField.textContent;
-    this.temporaryNumberStorage = [];
     this.secondNumber = null;
   }
 }
