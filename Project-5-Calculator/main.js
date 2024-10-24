@@ -8,6 +8,7 @@ class Calculator {
     this.temporaryNumberStorage = [];
     this.firstNumber = null;
     this.secondNumber = null;
+    this.result = null;
     this.operator = null;
   }
 
@@ -17,6 +18,12 @@ class Calculator {
         if (Calculator.NUMERICS.includes(button.textContent)) {
           if (this.inputField.textContent == 0) {
             this.inputField.textContent = button.textContent;
+          } else if (this.result != null) {
+            this.secondNumber = +this.temporaryNumberStorage.join("");
+            this.temporaryNumberStorage = [];
+            this.inputField.textContent = button.textContent;
+            this.firstNumber = null;
+            this.result = null;
           } else {
             this.inputField.textContent += button.textContent;
           }
@@ -71,6 +78,7 @@ class Calculator {
         break;
     }
     this.firstNumber = +this.inputField.textContent;
+    this.result = this.firstNumber;
     this.secondNumber = null;
   }
 }
