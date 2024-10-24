@@ -66,7 +66,7 @@ class Calculator {
       case "/":
         this.inputField.textContent = this.divide();
         break;
-      case "*":
+      case "x":
         this.inputField.textContent = this.multiply();
         break;
     }
