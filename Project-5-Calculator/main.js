@@ -4,7 +4,7 @@ class Calculator {
 
   constructor() {
     this.inputField = document.querySelector(".input");
-    this.inputs = document.querySelectorAll(".button-inputs button");
+    this.buttons = document.querySelectorAll("button");
     this.temporaryNumberStorage = [];
     this.firstNumber = null;
     this.secondNumber = null;
@@ -12,24 +12,31 @@ class Calculator {
   }
 
   applyButtonListener() {
-    this.inputs.forEach((button) => {
+    this.buttons.forEach((button) => {
       button.addEventListener("click", () => {
-        if (this.inputField.textContent == 0) {
-          this.inputField.textContent = button.textContent;
+        if (Calculator.NUMERICS.includes(button.textContent)) {
+          if (this.inputField.textContent == 0) {
+            this.inputField.textContent = button.textContent;
+          } else {
+            this.inputField.textContent += button.textContent;
+          }
           this.temporaryNumberStorage.push(button.textContent);
-        } else if (this.operations.includes(button.textContent)) {
+        }
+
+        if (Calculator.OPERATIONS.includes(button.textContent)) {
           this.operator = button.textContent;
+
           if (this.firstNumber == null) {
             this.firstNumber = +this.temporaryNumberStorage.join("");
           }
+
           this.inputField.textContent = 0;
           this.temporaryNumberStorage = [];
-        } else if (button.textContent == "=") {
+        }
+
+        if (button.textContent == "=") {
           this.secondNumber = +this.temporaryNumberStorage.join("");
           this.operate();
-        } else {
-          this.inputField.textContent += button.textContent;
-          this.temporaryNumberStorage.push(button.textContent);
         }
       });
     });
@@ -64,7 +71,8 @@ class Calculator {
         break;
     }
     this.firstNumber = +this.inputField.textContent;
-    this.secondNumber = 0;
+    this.temporaryNumberStorage = [];
+    this.secondNumber = null;
   }
 }
 
