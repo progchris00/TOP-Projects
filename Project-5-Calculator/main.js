@@ -50,33 +50,34 @@ class Calculator {
   }
 
   add() {
-    return this.firstNumber + this.secondNumber;
+    this.result = this.firstNumber + this.secondNumber;
   }
   subtract() {
-    return this.firstNumber - this.secondNumber;
+    this.result = this.firstNumber - this.secondNumber;
   }
   multiply() {
-    return this.firstNumber * this.secondNumber;
+    this.result = this.firstNumber * this.secondNumber;
   }
   divide() {
-    return this.firstNumber / this.secondNumber;
+    this.result = this.firstNumber / this.secondNumber;
   }
 
   operate() {
     switch (this.operator) {
       case "+":
-        this.inputField.textContent = this.add();
+        this.add();
         break;
       case "-":
-        this.inputField.textContent = this.subtract();
+        this.subtract();
         break;
       case "/":
-        this.inputField.textContent = this.divide();
+        this.divide();
         break;
       case "x":
-        this.inputField.textContent = this.multiply();
+        this.multiply();
         break;
     }
+    this.inputField.textContent = this.result;
     this.firstNumber = +this.inputField.textContent;
     this.result = this.firstNumber;
     this.secondNumber = null;
