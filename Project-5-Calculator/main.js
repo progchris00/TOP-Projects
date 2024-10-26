@@ -32,6 +32,9 @@ class Calculator {
 
           if (this.firstNumber == null) {
             this.firstNumber = +this.temporaryNumberStorage.join("");
+          } else {
+            this.secondNumber = +this.temporaryNumberStorage.join("");
+            this.operate();
           }
 
           this.temporaryNumberStorage = [];
