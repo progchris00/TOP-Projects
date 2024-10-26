@@ -29,12 +29,6 @@ class Calculator {
         if (Calculator.OPERATIONS.includes(button.value)) {
           this.operator = button.value;
 
-          if (this.result != null) {
-            this.inputField.textContent = `Ans${button.value}`;
-          } else {
-            this.inputField.textContent += this.operator;
-          }
-
           if (this.firstNumber == null) {
             this.firstNumber = +this.temporaryNumberStorage.join("");
           }
