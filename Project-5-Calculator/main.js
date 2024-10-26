@@ -1,5 +1,5 @@
 class Calculator {
-  static OPERATIONS = "+-/x";
+  static OPERATIONS = "+-/*";
   static NUMERICS = "0123456789";
 
   constructor() {
@@ -66,7 +66,7 @@ class Calculator {
       case "/":
         this.divide();
         break;
-      case "x":
+      case "*":
         this.multiply();
         break;
     }
