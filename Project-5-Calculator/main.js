@@ -4,7 +4,6 @@ class Calculator {
 
   constructor() {
     this.inputField = document.querySelector(".input-field");
-    this.resultField = document.querySelector(".result-field");
     this.buttons = document.querySelectorAll("button");
     this.temporaryNumberStorage = [];
     this.firstNumber = null;
@@ -43,7 +42,7 @@ class Calculator {
         if (button.value == "=") {
           this.secondNumber = +this.temporaryNumberStorage.join("");
           if (this.operator == null) {
-            this.resultField.textContent = +this.secondNumber;
+            this.inputField.textContent = +this.secondNumber;
           } else {
             this.operate();
           }
@@ -68,7 +67,7 @@ class Calculator {
         this.multiply();
         break;
     }
-    this.resultField.textContent = this.result;
+    this.inputField.textContent = this.result;
     this.firstNumber = null;
     this.secondNumber = null;
   }
