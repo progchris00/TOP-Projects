@@ -16,21 +16,21 @@ class Calculator {
   applyButtonListener() {
     this.buttons.forEach((button) => {
       button.addEventListener("click", () => {
-        if (Calculator.NUMERICS.includes(button.textContent)) {
+        if (Calculator.NUMERICS.includes(button.value)) {
           if (this.inputField.textContent == 0) {
-            this.inputField.textContent = button.textContent;
+            this.inputField.textContent = button.value;
           } else {
-            this.inputField.textContent += button.textContent;
+            this.inputField.textContent += button.value;
           }
 
-          this.temporaryNumberStorage.push(button.textContent);
+          this.temporaryNumberStorage.push(button.value);
         }
 
-        if (Calculator.OPERATIONS.includes(button.textContent)) {
-          this.operator = button.textContent;
+        if (Calculator.OPERATIONS.includes(button.value)) {
+          this.operator = button.value;
 
           if (this.result != null) {
-            this.inputField.textContent = `Ans${button.textContent}`;
+            this.inputField.textContent = `Ans${button.value}`;
           } else {
             this.inputField.textContent += this.operator;
           }
@@ -42,7 +42,7 @@ class Calculator {
           this.temporaryNumberStorage = [];
         }
 
-        if (button.textContent == "=") {
+        if (button.value == "=") {
           this.secondNumber = +this.temporaryNumberStorage.join("");
           if (this.operator == null) {
             this.resultField.textContent = +this.secondNumber;
