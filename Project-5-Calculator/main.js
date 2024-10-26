@@ -41,11 +41,7 @@ class Calculator {
 
         if (button.value == "=") {
           this.secondNumber = +this.temporaryNumberStorage.join("");
-          if (this.operator == null) {
-            this.inputField.textContent = +this.secondNumber;
-          } else {
-            this.operate();
-          }
+          this.operate();
         }
         console.log(this.temporaryNumberStorage);
       });
