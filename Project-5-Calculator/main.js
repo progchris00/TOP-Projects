@@ -3,7 +3,8 @@ class Calculator {
   static NUMERICS = "0123456789";
 
   constructor() {
-    this.inputField = document.querySelector(".input");
+    this.inputField = document.querySelector(".input-field");
+    this.resultField = document.querySelector(".result-field");
     this.buttons = document.querySelectorAll("button");
     this.temporaryNumberStorage = [];
     this.firstNumber = null;
@@ -18,33 +19,38 @@ class Calculator {
         if (Calculator.NUMERICS.includes(button.textContent)) {
           if (this.inputField.textContent == 0) {
             this.inputField.textContent = button.textContent;
-          } else if (this.result != null) {
-            this.secondNumber = +this.temporaryNumberStorage.join("");
-            this.temporaryNumberStorage = [];
-            this.inputField.textContent = button.textContent;
-            this.firstNumber = null;
-            this.result = null;
           } else {
             this.inputField.textContent += button.textContent;
           }
+
           this.temporaryNumberStorage.push(button.textContent);
         }
 
         if (Calculator.OPERATIONS.includes(button.textContent)) {
           this.operator = button.textContent;
 
+          if (this.result != null) {
+            this.inputField.textContent = `Ans${button.textContent}`;
+          } else {
+            this.inputField.textContent += this.operator;
+          }
+
           if (this.firstNumber == null) {
             this.firstNumber = +this.temporaryNumberStorage.join("");
           }
 
-          this.inputField.textContent = 0;
           this.temporaryNumberStorage = [];
         }
 
         if (button.textContent == "=") {
           this.secondNumber = +this.temporaryNumberStorage.join("");
-          this.operate();
+          if (this.operator == null) {
+            this.resultField.textContent = +this.secondNumber;
+          } else {
+            this.operate();
+          }
         }
+        console.log(this.temporaryNumberStorage);
       });
     });
   }
@@ -64,9 +70,8 @@ class Calculator {
         this.multiply();
         break;
     }
-    this.inputField.textContent = this.result;
-    this.firstNumber = +this.inputField.textContent;
-    this.result = this.firstNumber;
+    this.resultField.textContent = this.result;
+    this.firstNumber = null;
     this.secondNumber = null;
   }
 
