@@ -28,23 +28,9 @@ class Calculator {
   }
 
   handleNumerics(button) {
-    // Replace input field with the button value the first time and after an expression. Append otherwise.
-
-    if (this.inputField.textContent == 0) {
-      this.inputField.textContent = button.value;
-    } else if (this.result) {
-      this.inputField.textContent = button.value;
-      this.result = null;
-    } else {
-      this.inputField.textContent += button.value;
-    }
-
-    // Combine multiple digit numbers after first number
-    if (this.firstNumber) {
-      if (this.temporaryNumberStorage == 0) {
-        this.inputField.textContent = button.value;
-      }
-    }
+    this.inputField.textContent == 0
+      ? (this.inputField.textContent = button.value)
+      : (this.inputField.textContent += button.value);
 
     this.temporaryNumberStorage.push(button.value);
   }
