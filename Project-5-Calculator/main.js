@@ -59,8 +59,10 @@ class Calculator {
 
   handleEqual() {
     this.secondNumber = +this.temporaryNumberStorage.join("");
-    this.temporaryNumberStorage = [];
-    this.operate();
+    if (this.firstNumber && this.operator && this.secondNumber) {
+      this.temporaryNumberStorage = [];
+      this.operate();
+    }
   }
 
   operate() {
