@@ -78,7 +78,12 @@ class Calculator {
         this.multiply();
         break;
     }
-    this.inputField.textContent = this.firstNumber.toFixed(2);
+    if (this.firstNumber % 1 != 0) {
+      this.inputField.textContent = this.firstNumber.toFixed(2);
+    } else {
+      this.inputField.textContent = this.firstNumber;
+    }
+
     this.operator = null;
     this.secondNumber = null;
   }
