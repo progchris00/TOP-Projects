@@ -38,8 +38,12 @@ class Calculator {
   }
 
   handleOperations(button) {
-    this.firstNumber = +this.temporaryNumberStorage.join("");
-    this.temporaryNumberStorage = [];
+    if (this.firstNumber) {
+      this.handleEqual();
+    } else {
+      this.firstNumber = +this.temporaryNumberStorage.join("");
+      this.temporaryNumberStorage = [];
+    }
     this.operator = button.value;
   }
 
