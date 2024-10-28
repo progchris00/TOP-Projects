@@ -8,7 +8,6 @@ class Calculator {
     this.temporaryNumberStorage = [];
     this.firstNumber = null;
     this.secondNumber = null;
-    this.result = null;
     this.operator = null;
   }
 
@@ -87,22 +86,21 @@ class Calculator {
         this.multiply();
         break;
     }
-    this.inputField.textContent = this.result;
-    this.firstNumber = null;
+    this.inputField.textContent = this.firstNumber;
     this.secondNumber = null;
   }
 
   add() {
-    this.result = this.firstNumber + this.secondNumber;
+    this.firstNumber = this.firstNumber + this.secondNumber;
   }
   subtract() {
-    this.result = this.firstNumber - this.secondNumber;
+    this.firstNumber = this.firstNumber - this.secondNumber;
   }
   multiply() {
-    this.result = this.firstNumber * this.secondNumber;
+    this.firstNumber = this.firstNumber * this.secondNumber;
   }
   divide() {
-    this.result = this.firstNumber / this.secondNumber;
+    this.firstNumber = this.firstNumber / this.secondNumber;
   }
 }
 
