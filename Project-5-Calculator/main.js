@@ -20,6 +20,8 @@ class Calculator {
           this.handleOperations(button);
         } else if (button.value == "=") {
           this.handleEqual();
+        } else if (button.value == "clear") {
+          this.clear();
         }
 
         console.log(TOPCalculator);
@@ -92,6 +94,14 @@ class Calculator {
   }
   divide() {
     this.firstNumber = this.firstNumber / this.secondNumber;
+  }
+
+  clear() {
+    this.inputField.textContent = 0;
+    this.firstNumber = null;
+    this.secondNumber = null;
+    this.operator = null;
+    this.temporaryNumberStorage = [];
   }
 }
 
