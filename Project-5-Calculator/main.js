@@ -36,17 +36,9 @@ class Calculator {
   }
 
   handleOperations(button) {
-    // Set operation when clicked. Evaluate expression for the first time and also when one is evaluated.
-
+    this.firstNumber = +this.temporaryNumberStorage.join("");
+    this.temporaryNumberStorage = [];
     this.operator = button.value;
-
-    if (this.result) {
-      this.firstNumber = this.result;
-      this.result = null;
-    } else {
-      this.firstNumber = +this.temporaryNumberStorage.join("");
-      this.temporaryNumberStorage = [];
-    }
   }
 
   handleEqual() {
