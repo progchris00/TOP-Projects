@@ -28,9 +28,11 @@ class Calculator {
   }
 
   handleNumerics(button) {
-    this.inputField.textContent == 0
-      ? (this.inputField.textContent = button.value)
-      : (this.inputField.textContent += button.value);
+    if (this.temporaryNumberStorage == 0 || this.inputField.textContent == 0) {
+      this.inputField.textContent = button.value;
+    } else {
+      this.inputField.textContent += button.value;
+    }
 
     this.temporaryNumberStorage.push(button.value);
   }
