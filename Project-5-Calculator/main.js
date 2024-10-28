@@ -34,6 +34,10 @@ class Calculator {
       this.inputField.textContent += button.value;
     }
 
+    if (this.firstNumber && this.operator == null) {
+      this.firstNumber = null;
+    }
+
     this.temporaryNumberStorage.push(button.value);
   }
 
@@ -69,6 +73,7 @@ class Calculator {
         break;
     }
     this.inputField.textContent = this.firstNumber;
+    this.operator = null;
     this.secondNumber = null;
   }
 
