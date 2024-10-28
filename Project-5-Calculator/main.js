@@ -28,6 +28,10 @@ class Calculator {
   }
 
   handleNumerics(button) {
+    // Populate input field on first input and append when a number is already exists.
+    // Reset the first number when the operator is null.
+    // Operator is not null only when there is an ongoing computation.
+
     if (this.temporaryNumberStorage == 0 || this.inputField.textContent == 0) {
       this.inputField.textContent = button.value;
     } else {
