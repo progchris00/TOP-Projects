@@ -84,6 +84,10 @@ class Calculator {
       this.inputField.textContent = this.firstNumber;
     }
 
+    if (this.operator == "/" && this.secondNumber == 0) {
+      this.inputField.textContent = "Syntax error: Cannot divide by zero.";
+    }
+
     this.operator = null;
     this.secondNumber = null;
   }
