@@ -42,14 +42,12 @@ class Calculator {
   }
 
   handleEqual() {
-    if (this.firstNumber && this.temporaryNumberStorage) {
-      this.operate();
-    }
+    this.secondNumber = +this.temporaryNumberStorage.join("");
     this.temporaryNumberStorage = [];
+    this.operate();
   }
 
   operate() {
-    this.secondNumber = +this.temporaryNumberStorage.join("");
     switch (this.operator) {
       case "+":
         this.add();
