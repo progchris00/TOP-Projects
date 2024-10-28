@@ -53,6 +53,7 @@ button,
 textarea,
 select {
   font: inherit;
+  color: inherit;
 }
 /*
   7. Avoid text overflows
@@ -65,4 +66,61 @@ h4,
 h5,
 h6 {
   overflow-wrap: break-word;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--clr-secondary);
+  color: var(--clr-secondary);
+  height: 100vh;
+  font-size: 1.25rem;
+  font-family: var(--ff-inter);
+}
+
+main {
+  background-color: var(--clr-background);
+  padding: 1.5rem;
+  border-radius: 1rem;
+}
+
+button {
+  background-color: var(--clr-primary);
+  border: none;
+  border-radius: 100%;
+  width: 3rem;
+  height: 3rem;
+}
+
+.operations button {
+  background-color: var(--clr-accent);
+}
+
+.extra button {
+  background-color: var(--clr-secondary);
+  color: var(--clr-background);
+}
+
+.flex-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.input-field {
+  text-align: right;
+  padding: 2.5rem 0;
+  font-size: 2.5rem;
+}
+
+.operations,
+.numerics {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.gap {
+  display: flex;
+  gap: 0.5rem;
 }

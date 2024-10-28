@@ -5,47 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>Project-5-Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=League+Spartan:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <main>
-      <h1>Calculator</h1>
       <div class="input-field">0</div>
-      <div>
-        <button>%</button>
-        <button>CE</button>
-        <button value="clear">C</button>
-        <button>DEL</button>
-      </div>
-      <div>
-        <div>
-          <div>
+      <div class="flex-group">
+        <div class="numerics">
+          <div class="extra gap">
+            <button value="clear">C</button>
+            <button>+/-</button>
+            <button>%</button>
+          </div>
+          <div class="gap">
             <button value="7">7</button>
             <button value="8">8</button>
             <button value="9">9</button>
           </div>
-          <div>
+          <div class="gap">
             <button value="4">4</button>
             <button value="5">5</button>
             <button value="6">6</button>
           </div>
-          <div>
+          <div class="gap">
             <button value="1">1</button>
             <button value="2">2</button>
             <button value="3">3</button>
           </div>
+          <div class="gap">
+            <button value="0">0</button>
+            <button>.</button>
+            <button>Del</button>
+          </div>
         </div>
-        <div>
+        <div class="operations">
           <button value="/">/</button>
           <button value="*">*</button>
           <button value="-">-</button>
           <button value="+">+</button>
           <button value="=">=</button>
         </div>
-      </div>
-      <div>
-        <button>+ / -</button>
-        <button value="0">0</button>
-        <button>.</button>
       </div>
     </main>
     <script src="main.js"></script>
