@@ -1,3 +1,19 @@
+@font-face {
+  font-family: norse-bold;
+  src: url(./assets/norse-bold.otf);
+}
+
+:root {
+  --clr-primary: #f9fafc;
+  --clr-accent: #596d48;
+  --clr-secondary: #e5e7eb;
+
+  --valid: blue;
+  --invalid: red;
+
+  --ff-logo: norse-bold;
+}
+
 /* 1. Use a more-intuitive box-sizing model */
 *,
 *::before,
