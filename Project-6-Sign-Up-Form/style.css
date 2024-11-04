@@ -8,6 +8,8 @@
   --clr-accent: #596d48;
   --clr-secondary: #e5e7eb;
 
+  --border: #e5e7eb;
+
   --valid: blue;
   --invalid: red;
 
@@ -81,4 +83,59 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
+}
+
+body {
+  background-color: var(--clr-primary);
+}
+
+.sign-up-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-container {
+  width: 35%;
+}
+
+.heading-container,
+.input-container,
+.button-container {
+  padding: 1.5rem;
+}
+
+.input-container {
+  background-color: white;
+  display: flex;
+  box-shadow: 10px 3px 5px 5px var(--border);
+}
+
+.flex-group {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.form-container input {
+  margin-bottom: 0.5rem;
+  border: 1.5px solid var(--border);
+}
+
+label {
+  text-transform: uppercase;
+  display: block;
+}
+
+.create-button {
+  background-color: var(--clr-accent);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.login-span {
+  color: var(--clr-accent);
 }
