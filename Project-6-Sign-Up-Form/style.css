@@ -89,27 +89,28 @@ body {
   background-color: var(--clr-primary);
 }
 
-.sign-up-container {
-  height: 100vh;
+main {
   display: flex;
   align-items: center;
-  justify-content: center;
+  height: 100vh;
 }
 
-.image-container {
-  width: 35%;
-}
-
-.heading-container,
-.input-container,
-.button-container {
-  padding: 1.5rem;
+.background-image {
+  height: 100vh;
 }
 
 .input-container {
   background-color: white;
   display: flex;
-  box-shadow: 10px 3px 5px 5px var(--border);
+  box-shadow: 0 5px 2px var(--border);
+}
+
+.heading {
+  padding: 2rem;
+}
+
+.signup-form > div {
+  padding: 2rem;
 }
 
 .flex-group {
