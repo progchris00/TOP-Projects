@@ -87,7 +87,6 @@ h6 {
 
 body {
   background-color: var(--clr-primary);
-  font-size: 0.825rem;
 }
 
 main {
@@ -133,6 +132,14 @@ fieldset {
 .form-container input {
   margin-bottom: 0.5rem;
   border: 1.5px solid var(--border);
+}
+
+.form-container input:focus {
+  outline: 1.5px solid blue;
+}
+
+.form-container input:invalid {
+  outline: 1.5px solid red;
 }
 
 label {
