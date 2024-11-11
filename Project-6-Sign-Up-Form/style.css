@@ -142,6 +142,15 @@ fieldset {
   outline: 1.5px solid red;
 }
 
+.form-container input:invalid + .password-validation {
+  visibility: visible;
+}
+
+.password-validation {
+  color: red;
+  visibility: hidden;
+}
+
 label {
   text-transform: uppercase;
   display: block;
