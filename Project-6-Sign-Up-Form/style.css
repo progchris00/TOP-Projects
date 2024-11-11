@@ -99,6 +99,44 @@ main {
   height: 100vh;
 }
 
+.image-container {
+  position: relative;
+}
+
+.odin-container {
+  margin-top: 8rem;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.498);
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem;
+}
+
+.odin-text {
+  color: white;
+  font-size: 3.5rem;
+  font-family: var(--ff-logo);
+}
+
+.odin-image {
+  width: 6rem;
+}
+
+.logo-credit {
+  position: absolute;
+  bottom: 0;
+  color: white;
+  text-align: center;
+  width: 100%;
+}
+
+.logo-credit a {
+  color: white;
+}
+
 .input-container {
   background-color: white;
   display: flex;
