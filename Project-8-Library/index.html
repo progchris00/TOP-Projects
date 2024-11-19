@@ -1,29 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="add-book-form">
-      <form action="">
-        <label for="">Title</label>
-        <input type="text" />
-        <label for="">Author</label>
-        <input type="text" />
-        <label for="">Pages</label>
-        <input type="text" />
-        <input type="radio" name="book-status" id="read" />
-        <label for="read">Read</label>
-        <input type="radio" name="book-status" id="not-read" />
-        <label for="not-read">Not Read</label>
-        <input type="submit" value="Submit" />
-      </form>
-    </div>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Odin Library</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<header>
+    <h1>Odin Library</h1>
+</header>
+<main>
+    <button>Add new book</button>
     <div class="books-container">
-      <ul></ul>
+        <ul></ul>
     </div>
-    <script src="main.js"></script>
-  </body>
+    <dialog>
+        <form action="">
+            <label for="title">Title</label>
+            <input name="title" id="title" type="text"/>
+            <label for="author">Author</label>
+            <input name="author" id="author" type="text"/>
+            <label for="pages">Pages</label>
+            <input name="pages" id="pages" type="number"/>
+            <input name="book-status" id="read" type="radio"/>
+            <label for="read">Read</label>
+            <input name="book-status" id="not-read" type="radio"/>
+            <label for="not-read">Not Read</label>
+            <input value="Submit" type="submit"/>
+        </form>
+    </dialog>
+</main>
+<script src="main.js"></script>
+</body>
 </html>
