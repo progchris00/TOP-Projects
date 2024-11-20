@@ -18,8 +18,9 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 function displayBooks() {
+    const bookContainer = document.querySelector(".books-container");
+    bookContainer.innerHTML = "";
     myLibrary.forEach((book) => {
-        const bookContainer = document.querySelector(".books-container");
         bookContainer.innerHTML += `
         <li>Book Title: ${book.title} </li>
         <li>Author: ${book.author} </li>
@@ -41,7 +42,7 @@ submitNewBookButton.addEventListener("click", (event) => {
     const bookTitle = document.getElementById("title").value;
     const bookAuthor = document.getElementById("author").value;
     const bookPages = document.getElementById("pages").value;
-    let bookRead = document.getElementById("read").value;
+    const bookRead = document.getElementById("read").checked;
     addBookToLibrary(bookTitle, bookAuthor, bookPages, bookRead);
     addNewBookModal.close();
     displayBooks();
