@@ -11,21 +11,22 @@
     <h1>Odin Library</h1>
 </header>
 <main>
-    <button>Add new book</button>
+    <button id="open-modal-button">Add new book</button>
     <div class="books-container">
         <ul></ul>
     </div>
-    <dialog>
+    <dialog id="add-new-book-modal">
+        <button id="close-modal-button">X</button>
         <form action="">
             <label for="title">Title</label>
-            <input name="title" id="title" type="text"/>
+            <input name="title" id="title" type="text" required/>
             <label for="author">Author</label>
-            <input name="author" id="author" type="text"/>
+            <input name="author" id="author" type="text" required/>
             <label for="pages">Pages</label>
-            <input name="pages" id="pages" type="number"/>
+            <input name="pages" id="pages" type="number" required/>
             <label for="read">Read it already? </label>
             <input name="book-status" id="read" type="checkbox"/>
-            <input value="Submit" type="submit"/>
+            <input value="Submit" type="submit" id="submit-new-book-button"/>
         </form>
     </dialog>
 </main>
