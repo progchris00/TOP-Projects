@@ -20,14 +20,25 @@ function addBookToLibrary(title, author, pages, read) {
 function displayBooks() {
     const bookContainer = document.querySelector(".books-container");
     bookContainer.innerHTML = "";
+    let bookID = 0;
     myLibrary.forEach((book) => {
         bookContainer.innerHTML += `
-        <li>Book Title: ${book.title} </li>
-        <li>Author: ${book.author} </li>
-        <li>Pages: ${book.pages} </li>
-        <li> ${book.read} </li
+        <div data-attribute="${bookID}">
+            <p>Book Title: ${book.title} </p>
+            <p>Author: ${book.author} </p>
+            <p>Pages: ${book.pages} </p>
+            <p> ${book.read} </p>
+            <button onclick="deleteBook(${bookID})">Remove book</button>
+        </div>
   `;
+    bookID++;
     });
+}
+
+function deleteBook(bookID) {
+    myLibrary.splice(bookID, 1);
+    displayBooks();
+
 }
 
 openModalButton.addEventListener("click", () => {
