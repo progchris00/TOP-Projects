@@ -23,22 +23,16 @@ function displayBooks() {
     let bookID = 0;
     myLibrary.forEach((book) => {
         bookContainer.innerHTML += `
-        <div data-attribute="${bookID}">
+        <div data-attribute=${bookID}>
             <p>Book Title: ${book.title} </p>
             <p>Author: ${book.author} </p>
             <p>Pages: ${book.pages} </p>
             <p> ${book.read} </p>
-            <button onclick="deleteBook(${bookID})">Remove book</button>
+            <button class="delete-button">Remove book</button>
         </div>
   `;
     bookID++;
     });
-}
-
-function deleteBook(bookID) {
-    myLibrary.splice(bookID, 1);
-    displayBooks();
-
 }
 
 openModalButton.addEventListener("click", () => {
@@ -59,3 +53,11 @@ submitNewBookButton.addEventListener("click", (event) => {
     displayBooks();
 })
 
+document.addEventListener("click", (event) => {
+    if (event.target.classList.contains("delete-button")) {
+        const parentElement = event.target.parentElement;
+        const bookIndex = parseInt(parentElement.getAttribute("data-attribute"));
+        myLibrary.splice(bookIndex, 1);
+        displayBooks();
+    }
+})
