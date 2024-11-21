@@ -1,4 +1,4 @@
-const myLibrary = [];
+let myLibrary = [];
 const openModalButton = document.getElementById("open-modal-button");
 const closeModal = document.getElementById("close-modal-button");
 const addNewBookModal = document.getElementById("add-new-book-modal");
