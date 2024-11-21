@@ -31,7 +31,7 @@ function displayBooks() {
             <button class="delete-button">Remove book</button>
         </div>
   `;
-    bookID++;
+        bookID++;
     });
 }
 
