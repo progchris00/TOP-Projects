@@ -38,7 +38,6 @@ function displayBooks() {
             <p>Author: ${book.author} </p>
             <p>Pages: ${book.pages} </p>
             <button data-status="${book.read}" onclick="toggleStatus(${bookID})" id="${bookID}">${readStatus}</button>
-            <p> ${book.read} </p>
             <button class="delete-button">Remove book</button>
         </div>
   `;
