@@ -46,6 +46,13 @@ function displayBooks() {
     });
 }
 
+function removeInputValues(){
+    document.getElementById("title").value = "";
+    document.getElementById("author").value = "";
+    document.getElementById("pages").value = "";
+    document.getElementById("read").checked = false;
+}
+
 openModalButton.addEventListener("click", () => {
     addNewBookModal.showModal();
 })
@@ -62,6 +69,7 @@ submitNewBookButton.addEventListener("click", (event) => {
     addBookToLibrary(bookTitle, bookAuthor, bookPages, bookRead);
     addNewBookModal.close();
     displayBooks();
+    removeInputValues();
 })
 
 document.addEventListener("click", (event) => {
