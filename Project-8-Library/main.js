@@ -60,7 +60,6 @@ closeModal.addEventListener("click", () => {
 })
 
 submitNewBookButton.addEventListener("click", (event) => {
-    event.preventDefault();
     const bookTitle = document.getElementById("title").value;
     const bookAuthor = document.getElementById("author").value;
     const bookPages = document.getElementById("pages").value;
