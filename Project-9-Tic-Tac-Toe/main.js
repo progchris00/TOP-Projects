@@ -1,12 +1,14 @@
-const playerOneTurns = [0, 1, 2];
+const playerOneTurns = [];
 const playerTwoTurns = [];
 
 function playerOneMoves(move) {
     playerOneTurns.push(move);
+    checkGameStatus();
 }
 
 function playerTwoMoves(move) {
     playerTwoTurns.push(move);
+    checkGameStatus()
 }
 
 function checkGameStatus() {
@@ -24,5 +26,3 @@ function checkGameStatus() {
         }
     })
 }
-
-checkGameStatus();
