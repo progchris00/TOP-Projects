@@ -1,16 +1,3 @@
-const playerOneTurns = [];
-const playerTwoTurns = [];
-
-function playerOneMoves(move) {
-    playerOneTurns.push(move);
-    checkGameStatus();
-}
-
-function playerTwoMoves(move) {
-    playerTwoTurns.push(move);
-    checkGameStatus()
-}
-
 function checkGameStatus() {
     const winningCombination = ["012", "345", "678", "036", "147", "258", "048", "246"];
     const turns = [];
@@ -25,4 +12,12 @@ function checkGameStatus() {
             console.log("You won!");
         }
     })
+}
+
+function createPlayer(name) {
+    const playerTurns = [];
+    const makeMove = (move) => {
+        playerTurns.push(move);
+    }
+    return {name, playerTurns, makeMove};
 }
