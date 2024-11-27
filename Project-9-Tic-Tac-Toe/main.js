@@ -1,7 +1,6 @@
 function createPlayer(name) {
     const playerName = name;
     const playerTurns = [];
-
     const setTurns = (move) => {
         playerTurns.push(move);
     }
@@ -12,17 +11,32 @@ function createPlayer(name) {
 
 const gameBoard = (function () {
     const winningCombination = ["012", "345", "678", "036", "147", "258", "048", "246"];
-    const isGameOver = false;
+    let playerToMove = "Player One";
 
     const playerOne = createPlayer("Player One")
     const playerTwo = createPlayer("Player Two")
 
-    const takeTurns = () => {
-        playerOne.setTurns();
-        checkGameStatus("Player One", playerOne.getTurns());
+    const attachListener = () => {
+        const board = document.querySelector(".board");
+        board.addEventListener("click", (e) => {
+            if (board.contains(e.target)) {
+                takeTurns(e.target.value);
+            }
+        })
+    }
 
-        playerTwo.setTurns();
-        checkGameStatus("Player Two", playerTwo.getTurns());
+    const takeTurns = (move) => {
+        if (playerToMove === "Player One") {
+            playerOne.setTurns(move);
+            checkGameStatus("Player One", playerOne.getTurns());
+            console.log(`Player One turns: ${playerOne.getTurns()}`);
+            playerToMove = "Player Two";
+        } else if (playerToMove === "Player Two") {
+            playerTwo.setTurns(move);
+            checkGameStatus("Player Two", playerTwo.getTurns());
+            console.log(`Player Two turns: ${playerTwo.getTurns()}`);
+            playerToMove = "Player One";
+        }
     }
 
     const checkGameStatus = (playerName, playerTurns) => {
@@ -30,7 +44,7 @@ const gameBoard = (function () {
 
         winningCombination.forEach((combination) => {
             playerTurns.forEach((turn) => {
-                if (combination.includes(turn.toString())) {
+                if (combination.includes(turn?.toString())) {
                     turns.push(combination);
                 }
             })
@@ -43,9 +57,7 @@ const gameBoard = (function () {
     }
 
     const runGame = () => {
-        if (!isGameOver) {
-            takeTurns();
-        }
+        attachListener();
     }
 
     return {runGame};
