@@ -10,7 +10,7 @@ function createPlayer(name) {
     return {setTurns, getTurns};
 }
 
-(function () {
+const gameBoard = (function () {
     const winningCombination = ["012", "345", "678", "036", "147", "258", "048", "246"];
     const isGameOver = false;
 
@@ -18,16 +18,14 @@ function createPlayer(name) {
     const playerTwo = createPlayer("Player Two")
 
     const takeTurns = () => {
-        while (isGameOver === false) {
-            playerOne.setTurns();
-            checkGameStatus(playerOne.getTurns());
+        playerOne.setTurns();
+        checkGameStatus("Player One", playerOne.getTurns());
 
-            playerTwo.setTurns();
-            checkGameStatus(playerTwo.getTurns());
-        }
+        playerTwo.setTurns();
+        checkGameStatus("Player Two", playerTwo.getTurns());
     }
 
-    const checkGameStatus = (playerTurns) => {
+    const checkGameStatus = (playerName, playerTurns) => {
         const turns = [];
 
         winningCombination.forEach((combination) => {
@@ -39,8 +37,18 @@ function createPlayer(name) {
 
             let turnCount = turns.filter(turn => turn === combination).length;
             if (turnCount === 3) {
-                console.log("Game Over!");
+                console.log(`${playerName} Won!`);
             }
         })
     }
+
+    const runGame = () => {
+        if (!isGameOver) {
+            takeTurns();
+        }
+    }
+
+    return {runGame};
 })();
+
+gameBoard.runGame();
