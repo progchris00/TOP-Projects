@@ -15,9 +15,13 @@ function checkGameStatus() {
 }
 
 function createPlayer(name) {
+    const playerName = name;
     const playerTurns = [];
-    const makeMove = (move) => {
+
+    const setTurns = (move) => {
         playerTurns.push(move);
     }
-    return {name, playerTurns, makeMove};
+    const getTurns = () => playerTurns;
+
+    return {setTurns, getTurns};
 }
