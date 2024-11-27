@@ -28,11 +28,13 @@ const gameBoard = (function () {
     const takeTurns = (move) => {
         if (playerToMove === "Player One") {
             playerOne.setTurns(move);
+            document.getElementById(move).textContent = "X";
             checkGameStatus("Player One", playerOne.getTurns());
             console.log(`Player One turns: ${playerOne.getTurns()}`);
             playerToMove = "Player Two";
         } else if (playerToMove === "Player Two") {
             playerTwo.setTurns(move);
+            document.getElementById(move).textContent = "O";
             checkGameStatus("Player Two", playerTwo.getTurns());
             console.log(`Player Two turns: ${playerTwo.getTurns()}`);
             playerToMove = "Player One";
