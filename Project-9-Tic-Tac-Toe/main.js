@@ -20,7 +20,7 @@ const gameBoard = (function () {
         const board = document.querySelector(".board");
         board.addEventListener("click", (e) => {
             if (board.contains(e.target)) {
-                takeTurns(e.target.value);
+                takeTurns(e.target.id);
             }
         })
     }
