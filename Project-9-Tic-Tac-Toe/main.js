@@ -12,16 +12,17 @@ function createPlayer(name) {
 const gameBoard = (function () {
     const winningCombination = ["012", "345", "678", "036", "147", "258", "048", "246"];
     let playerToMove = "Player One";
+    let isGameOver = false;
 
     const playerOne = createPlayer("Player One")
     const playerTwo = createPlayer("Player Two")
 
     const gameAnnouncement = document.querySelector(".game-announcement");
-    gameAnnouncement.textContent = "Player one's turn"
+
     const attachListener = () => {
         const board = document.querySelector(".board");
         board.addEventListener("click", (e) => {
-            if (board.contains(e.target)) {
+            if (board.contains(e.target) && e.target.textContent === "" && isGameOver === false ) {
                 takeTurns(e.target.id);
             }
         })
@@ -56,13 +57,19 @@ const gameBoard = (function () {
 
             let turnCount = turns.filter(turn => turn === combination).length;
             if (turnCount === 3) {
-                gameAnnouncement.textContent = `${playerName} Won!`;
+                gameOver(playerName);
             }
         })
     }
 
     const runGame = () => {
+        gameAnnouncement.textContent = "Player One's turn"
         attachListener();
+    }
+
+    const gameOver = (winnerName) => {
+        gameAnnouncement.textContent = `${winnerName} Won!`;
+        isGameOver = true;
     }
 
     return {runGame};
