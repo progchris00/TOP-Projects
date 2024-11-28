@@ -16,6 +16,8 @@ const gameBoard = (function () {
     const playerOne = createPlayer("Player One")
     const playerTwo = createPlayer("Player Two")
 
+    const gameAnnouncement = document.querySelector(".game-announcement");
+    gameAnnouncement.textContent = "Player one's turn"
     const attachListener = () => {
         const board = document.querySelector(".board");
         board.addEventListener("click", (e) => {
@@ -27,12 +29,13 @@ const gameBoard = (function () {
 
     const takeTurns = (move) => {
         if (playerToMove === "Player One") {
+            gameAnnouncement.textContent = "Player Two's turn"
             playerOne.setTurns(move);
             document.getElementById(move).textContent = "X";
             checkGameStatus("Player One", playerOne.getTurns());
-            console.log(`Player One turns: ${playerOne.getTurns()}`);
             playerToMove = "Player Two";
         } else if (playerToMove === "Player Two") {
+            gameAnnouncement.textContent = "Player One's turn"
             playerTwo.setTurns(move);
             document.getElementById(move).textContent = "O";
             checkGameStatus("Player Two", playerTwo.getTurns());
@@ -53,7 +56,7 @@ const gameBoard = (function () {
 
             let turnCount = turns.filter(turn => turn === combination).length;
             if (turnCount === 3) {
-                console.log(`${playerName} Won!`);
+                gameAnnouncement.textContent = `${playerName} Won!`;
             }
         })
     }
