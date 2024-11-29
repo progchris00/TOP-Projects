@@ -47,7 +47,6 @@ const gameBoard = (function () {
             playerTwo.setTurns(move);
             document.getElementById(move).textContent = "O";
             checkGameStatus("Player Two", playerTwo.getTurns());
-            console.log(`Player Two turns: ${playerTwo.getTurns()}`);
             playerToMove = "Player One";
         }
     }
@@ -91,6 +90,7 @@ const gameBoard = (function () {
         })
         playerOne.resetTurns();
         playerTwo.resetTurns();
+        document.getElementById("reset-btn").classList.add("hidden");
         gameAnnouncement.textContent = "Player One's turn";
     }
 
