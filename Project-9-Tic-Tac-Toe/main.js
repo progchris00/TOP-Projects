@@ -25,10 +25,14 @@ const gameBoard = (function () {
 
     const attachListener = () => {
         const board = document.querySelector(".board");
+
+        const isValidMove = (target) => {
+            return board.contains(target) && target.textContent === "";
+        }
+
         board.addEventListener("click", (e) => {
-            if (board.contains(e.target) && e.target.textContent === "" && isGameOver === false ) {
-                takeTurns(e.target.id);
-            }
+            if (!isValidMove(e.target)) return;
+            takeTurns(e.target.id);
         })
     }
 
