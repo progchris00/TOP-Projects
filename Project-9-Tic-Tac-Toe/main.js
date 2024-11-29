@@ -1,12 +1,16 @@
 function createPlayer(name) {
     const playerName = name;
-    const playerTurns = [];
+    let playerTurns = [];
     const setTurns = (move) => {
         playerTurns.push(move);
     }
     const getTurns = () => playerTurns;
 
-    return {setTurns, getTurns};
+    const resetTurns = () => {
+        playerTurns = [];
+    }
+
+    return {setTurns, getTurns, resetTurns};
 }
 
 const gameBoard = (function () {
@@ -82,6 +86,8 @@ const gameBoard = (function () {
         document.querySelectorAll(".board > div").forEach((el) => {
             el.textContent = "";
         })
+        playerOne.resetTurns();
+        playerTwo.resetTurns();
         gameAnnouncement.textContent = "Player One's turn";
     }
 
