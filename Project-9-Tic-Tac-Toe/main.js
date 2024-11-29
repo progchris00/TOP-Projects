@@ -15,13 +15,12 @@ function createPlayer(name) {
 
 const gameBoard = (function () {
     const winningCombination = ["012", "345", "678", "036", "147", "258", "048", "246"];
-    let playerToMove = "Player One";
-    let isGameOver = false;
-
     const playerOne = createPlayer("Player One")
     const playerTwo = createPlayer("Player Two")
-
     const gameAnnouncement = document.querySelector(".game-announcement");
+
+    let playerToMove = "Player One";
+    let isGameOver = false;
 
     const attachListener = () => {
         const board = document.querySelector(".board");
@@ -32,11 +31,11 @@ const gameBoard = (function () {
 
         board.addEventListener("click", (e) => {
             if (!isValidMove(e.target)) return;
-            takeTurns(e.target.id);
+            makeMove(e.target.id);
         })
     }
 
-    const takeTurns = (move) => {
+    const makeMove = (move) => {
         if (playerToMove === "Player One") {
             gameAnnouncement.textContent = "Player Two's turn"
             playerOne.setTurns(move);
