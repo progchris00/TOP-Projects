@@ -70,6 +70,19 @@ const gameBoard = (function () {
     const gameOver = (winnerName) => {
         gameAnnouncement.textContent = `${winnerName} Won!`;
         isGameOver = true;
+        const resetButton = document.getElementById("reset-btn");
+        resetButton.classList.remove("hidden");
+        resetButton.addEventListener("click", () => {
+            resetGame();
+        })
+    }
+
+    const resetGame = () => {
+        isGameOver = false;
+        document.querySelectorAll(".board > div").forEach((el) => {
+            el.textContent = "";
+        })
+        gameAnnouncement.textContent = "Player One's turn";
     }
 
     return {runGame};
