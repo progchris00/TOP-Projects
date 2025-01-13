@@ -15,24 +15,27 @@ function createPlayer(name) {
 
 const gameBoard = (function () {
     const winningCombination = ["012", "345", "678", "036", "147", "258", "048", "246"];
+    const playerOne = createPlayer("Player One")
+    const playerTwo = createPlayer("Player Two")
+    const gameAnnouncement = document.querySelector(".game-announcement");
+
     let playerToMove = "Player One";
     let isGameOver = false;
 
-    const playerOne = createPlayer("Player One")
-    const playerTwo = createPlayer("Player Two")
-
-    const gameAnnouncement = document.querySelector(".game-announcement");
-
     const attachListener = () => {
         const board = document.querySelector(".board");
+
+        const isValidMove = (target) => {
+            return board.contains(target) && target.textContent === "";
+        }
+
         board.addEventListener("click", (e) => {
-            if (board.contains(e.target) && e.target.textContent === "" && isGameOver === false ) {
-                takeTurns(e.target.id);
-            }
+            if (!isValidMove(e.target)) return;
+            makeMove(e.target.id);
         })
     }
 
-    const takeTurns = (move) => {
+    const makeMove = (move) => {
         if (playerToMove === "Player One") {
             gameAnnouncement.textContent = "Player Two's turn"
             playerOne.setTurns(move);
@@ -44,7 +47,6 @@ const gameBoard = (function () {
             playerTwo.setTurns(move);
             document.getElementById(move).textContent = "O";
             checkGameStatus("Player Two", playerTwo.getTurns());
-            console.log(`Player Two turns: ${playerTwo.getTurns()}`);
             playerToMove = "Player One";
         }
     }
@@ -88,6 +90,7 @@ const gameBoard = (function () {
         })
         playerOne.resetTurns();
         playerTwo.resetTurns();
+        document.getElementById("reset-btn").classList.add("hidden");
         gameAnnouncement.textContent = "Player One's turn";
     }
 
