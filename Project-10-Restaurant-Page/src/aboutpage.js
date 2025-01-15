@@ -3,8 +3,8 @@ export function loadAboutpage() {
   content.innerHTML = `
     <div class="wrapper">
       <div class="text-container">
-        <h1>Menu page</h1>
-        <p>This is the menu page</p>
+        <h1>About page</h1>
+        <p>This is the about page</p>
       </div>
       <div class="image-container">
         <img src="" alt="Delicious burger" />
