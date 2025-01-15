@@ -1,1 +1,3 @@
-console.log("working");
+import { loadHomepage } from "./homepage";
+
+loadHomepage();
