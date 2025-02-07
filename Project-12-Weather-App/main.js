@@ -8,20 +8,17 @@ async function getWeatherData(country) {
     const response = await fetch(
       `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${country}?unitGroup=us&key=YJ6BJNZWHKG28555TTN69XTDU&contentType=json`
     );
-
     const weather = await response.json();
-
-    const result = weather.days[0].conditions;
-
-    showForecast(country, result);
+    displayWeather(weather);
   } catch (error) {
     showError(error);
   }
 }
 
-async function showForecast(country, result) {
+async function displayWeather(weather) {
   const resultContainer = document.getElementById("result");
-  resultContainer.textContent = `The weather condition in ${country} is ${result}`;
+  const { address, currentConditions } = weather;
+  resultContainer.textContent = `The weather condition in ${address} is ${currentConditions.conditions}`;
 }
 
 function showError(error) {
